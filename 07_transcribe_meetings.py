@@ -40,25 +40,11 @@ WHISPER_MODEL = "medium"
 
 def get_video_url_from_presentation(presentation_url):
     """
-    Fetch a Mediasite /Info page and extract the actual video stream URL.
-    Mediasite embeds video data in the page — we look for the player URL.
+    The /Info page is just metadata. yt-dlp needs the actual player page.
+    Strip /Info from the end to get the downloadable player URL.
+    /Presentation/XXXX/Info  ->  /Presentation/XXXX
     """
-    # Convert /Info URL to the player URL
-    # /Presentation/XXXX/Info  →  /Presentation/XXXX
-    player_url = presentation_url.replace("/Info", "")
-
-    try:
-        # yt-dlp can extract the stream URL directly without downloading
-        result = subprocess.run(
-            ["yt-dlp", "--get-url", "--no-warnings", player_url],
-            capture_output=True, text=True, timeout=30
-        )
-        if result.returncode == 0 and result.stdout.strip():
-            return result.stdout.strip().split('\n')[0]  # First URL
-    except Exception as e:
-        print(f"    [!] yt-dlp URL extraction failed: {e}")
-
-    return None
+    return presentation_url.replace("/Info", "").rstrip("/")
 
 
 def download_audio(video_url, output_path):
