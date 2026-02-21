@@ -1,0 +1,314 @@
+{
+  "geo": "US-WI-669",
+  "timeframe": "today 5-y",
+  "summary": {
+    "grocery store": {
+      "avg_interest": 9.4,
+      "peak_interest": 19,
+      "peak_date": "2025-12-21",
+      "recent_avg": 10.5,
+      "trend_vs_avg": 1.1,
+      "trend_direction": "stable",
+      "category": "store_type"
+    },
+    "affordable grocery": {
+      "avg_interest": 0.0,
+      "peak_interest": 2,
+      "peak_date": "2022-06-26",
+      "recent_avg": 0.0,
+      "trend_vs_avg": 0.0,
+      "trend_direction": "stable",
+      "category": "store_type"
+    },
+    "fresh produce": {
+      "avg_interest": 0.0,
+      "peak_interest": 3,
+      "peak_date": "2022-06-26",
+      "recent_avg": 0.0,
+      "trend_vs_avg": 0.0,
+      "trend_direction": "stable",
+      "category": "store_type"
+    },
+    "food desert": {
+      "avg_interest": 0.0,
+      "peak_interest": 3,
+      "peak_date": "2021-10-03",
+      "recent_avg": 0.0,
+      "trend_vs_avg": 0.0,
+      "trend_direction": "stable",
+      "category": "store_type"
+    },
+    "pharmacy": {
+      "avg_interest": 51.9,
+      "peak_interest": 100,
+      "peak_date": "2022-01-02",
+      "recent_avg": 51.3,
+      "trend_vs_avg": -0.6,
+      "trend_direction": "stable",
+      "category": "store_type"
+    },
+    "laundromat": {
+      "avg_interest": 1.6,
+      "peak_interest": 5,
+      "peak_date": "2021-08-22",
+      "recent_avg": 1.2,
+      "trend_vs_avg": -0.4,
+      "trend_direction": "stable",
+      "category": "store_type"
+    },
+    "coffee shop": {
+      "avg_interest": 3.8,
+      "peak_interest": 8,
+      "peak_date": "2024-10-13",
+      "recent_avg": 4.9,
+      "trend_vs_avg": 1.1,
+      "trend_direction": "stable",
+      "category": "store_type"
+    },
+    "restaurant": {
+      "avg_interest": 67.8,
+      "peak_interest": 100,
+      "peak_date": "2022-07-24",
+      "recent_avg": 66.5,
+      "trend_vs_avg": -1.3,
+      "trend_direction": "stable",
+      "category": "store_type"
+    },
+    "hardware store": {
+      "avg_interest": 2.4,
+      "peak_interest": 6,
+      "peak_date": "2021-05-16",
+      "recent_avg": 0.9,
+      "trend_vs_avg": -1.5,
+      "trend_direction": "stable",
+      "category": "store_type"
+    },
+    "urgent care": {
+      "avg_interest": 12.7,
+      "peak_interest": 20,
+      "peak_date": "2024-12-29",
+      "recent_avg": 12.8,
+      "trend_vs_avg": 0.1,
+      "trend_direction": "stable",
+      "category": "store_type"
+    },
+    "daycare": {
+      "avg_interest": 29.3,
+      "peak_interest": 55,
+      "peak_date": "2025-12-28",
+      "recent_avg": 33.2,
+      "trend_vs_avg": 3.9,
+      "trend_direction": "rising",
+      "category": "store_type"
+    },
+    "gym": {
+      "avg_interest": 61.8,
+      "peak_interest": 100,
+      "peak_date": "2026-01-04",
+      "recent_avg": 79.9,
+      "trend_vs_avg": 18.1,
+      "trend_direction": "rising",
+      "category": "store_type"
+    },
+    "nearest grocery store": {
+      "avg_interest": 0.0,
+      "peak_interest": 0,
+      "peak_date": "N/A",
+      "recent_avg": 0.0,
+      "trend_vs_avg": 0.0,
+      "trend_direction": "stable",
+      "category": "unmet_need"
+    },
+    "grocery store near me": {
+      "avg_interest": 21.2,
+      "peak_interest": 100,
+      "peak_date": "2025-12-21",
+      "recent_avg": 24.2,
+      "trend_vs_avg": 3.0,
+      "trend_direction": "rising",
+      "category": "unmet_need"
+    },
+    "cheap groceries": {
+      "avg_interest": 0.0,
+      "peak_interest": 0,
+      "peak_date": "N/A",
+      "recent_avg": 0.0,
+      "trend_vs_avg": 0.0,
+      "trend_direction": "stable",
+      "category": "unmet_need"
+    },
+    "healthy food options": {
+      "avg_interest": 0.2,
+      "peak_interest": 53,
+      "peak_date": "2024-12-29",
+      "recent_avg": 0.5,
+      "trend_vs_avg": 0.3,
+      "trend_direction": "stable",
+      "category": "unmet_need"
+    },
+    "late night food": {
+      "avg_interest": 0.5,
+      "peak_interest": 53,
+      "peak_date": "2022-12-25",
+      "recent_avg": 4.1,
+      "trend_vs_avg": 3.6,
+      "trend_direction": "rising",
+      "category": "unmet_need"
+    },
+    "open sunday": {
+      "avg_interest": 7.1,
+      "peak_interest": 100,
+      "peak_date": "2024-03-31",
+      "recent_avg": 4.0,
+      "trend_vs_avg": -3.1,
+      "trend_direction": "falling",
+      "category": "unmet_need"
+    },
+    "south madison grocery": {
+      "avg_interest": 0.7,
+      "peak_interest": 100,
+      "peak_date": "2022-08-21",
+      "recent_avg": 0.0,
+      "trend_vs_avg": -0.7,
+      "trend_direction": "stable",
+      "category": "neighborhood"
+    },
+    "allied drive food": {
+      "avg_interest": 0.7,
+      "peak_interest": 100,
+      "peak_date": "2025-07-06",
+      "recent_avg": 0.0,
+      "trend_vs_avg": -0.7,
+      "trend_direction": "stable",
+      "category": "neighborhood"
+    },
+    "park street restaurants": {
+      "avg_interest": 0.3,
+      "peak_interest": 74,
+      "peak_date": "2024-09-15",
+      "recent_avg": 0.4,
+      "trend_vs_avg": 0.1,
+      "trend_direction": "stable",
+      "category": "neighborhood"
+    },
+    "east side madison food": {
+      "avg_interest": 0.6,
+      "peak_interest": 74,
+      "peak_date": "2023-03-19",
+      "recent_avg": 1.2,
+      "trend_vs_avg": 0.6,
+      "trend_direction": "stable",
+      "category": "neighborhood"
+    },
+    "near east side madison": {
+      "avg_interest": 0.7,
+      "peak_interest": 79,
+      "peak_date": "2024-01-14",
+      "recent_avg": 1.9,
+      "trend_vs_avg": 1.2,
+      "trend_direction": "stable",
+      "category": "neighborhood"
+    },
+    "trader joes madison": {
+      "avg_interest": 0.2,
+      "peak_interest": 14,
+      "peak_date": "2023-04-02",
+      "recent_avg": 0.5,
+      "trend_vs_avg": 0.3,
+      "trend_direction": "stable",
+      "category": "brand"
+    },
+    "whole foods madison": {
+      "avg_interest": 6.0,
+      "peak_interest": 60,
+      "peak_date": "2023-12-10",
+      "recent_avg": 9.0,
+      "trend_vs_avg": 3.0,
+      "trend_direction": "rising",
+      "category": "brand"
+    },
+    "aldi madison": {
+      "avg_interest": 1.5,
+      "peak_interest": 21,
+      "peak_date": "2025-12-21",
+      "recent_avg": 2.5,
+      "trend_vs_avg": 1.0,
+      "trend_direction": "stable",
+      "category": "brand"
+    },
+    "costco madison": {
+      "avg_interest": 22.9,
+      "peak_interest": 45,
+      "peak_date": "2024-12-22",
+      "recent_avg": 25.6,
+      "trend_vs_avg": 2.7,
+      "trend_direction": "rising",
+      "category": "brand"
+    },
+    "target madison": {
+      "avg_interest": 35.0,
+      "peak_interest": 100,
+      "peak_date": "2021-12-19",
+      "recent_avg": 30.2,
+      "trend_vs_avg": -4.8,
+      "trend_direction": "falling",
+      "category": "brand"
+    }
+  },
+  "related_queries": {
+    "grocery store": [
+      {
+        "query": "near grocery store",
+        "value": 100
+      },
+      {
+        "query": "grocery store near me",
+        "value": 89
+      },
+      {
+        "query": "mexican grocery store",
+        "value": 18
+      },
+      {
+        "query": "grocery stores",
+        "value": 15
+      },
+      {
+        "query": "asian grocery store",
+        "value": 14
+      }
+    ],
+    "nearest grocery store": [
+      {
+        "query": "nearest grocery store to me",
+        "value": 100
+      },
+      {
+        "query": "nearest grocery store near me",
+        "value": 88
+      },
+      {
+        "query": "where is the nearest grocery store",
+        "value": 78
+      },
+      {
+        "query": "nearest grocery store to my location",
+        "value": 49
+      },
+      {
+        "query": "where's the nearest grocery store",
+        "value": 44
+      }
+    ],
+    "trader joes madison": [
+      {
+        "query": "trader joes madison wi",
+        "value": 100
+      },
+      {
+        "query": "trader joes madison hours",
+        "value": 23
+      }
+    ]
+  }
+}
