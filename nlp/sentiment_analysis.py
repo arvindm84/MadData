@@ -14,6 +14,11 @@ import torch
 from transformers import pipeline
 from tqdm import tqdm
 from pathlib import Path
+import time
+
+# GPU Detection
+print("CUDA available:", torch.cuda.is_available())
+print("GPU:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "None")
 
 # Paths
 DATA_DIR = Path(__file__).parent.parent
@@ -24,26 +29,43 @@ OUTPUT_FILE = DATA_DIR / "data" / "processed" / "sentiment_scores_raw.csv"
 device = 0 if torch.cuda.is_available() else -1
 print(f"🖥️  Using device: {'GPU (CUDA)' if device == 0 else 'CPU'}")
 
-# Batch size
-BATCH_SIZE = 32
+# Batch size (increased for GPU efficiency)
+BATCH_SIZE = 64
 
 
 def run_sentiment_analysis(texts, sentiment_pipe):
     """Run sentiment analysis in batches."""
     results = []
+    total_batches = (len(texts) + BATCH_SIZE - 1) // BATCH_SIZE
+    start_time = time.time()
     
-    for i in tqdm(range(0, len(texts), BATCH_SIZE), desc="Sentiment Analysis"):
+    for batch_idx, i in enumerate(tqdm(range(0, len(texts), BATCH_SIZE), desc="Sentiment Analysis", total=total_batches)):
         batch = texts[i:i + BATCH_SIZE]
         
-        # Run inference with truncation
+        # Estimate time remaining
+        if batch_idx > 0:
+            elapsed = time.time() - start_time
+            avg_time_per_batch = elapsed / (batch_idx + 1)
+            remaining_batches = total_batches - (batch_idx + 1)
+            est_remaining_secs = avg_time_per_batch * remaining_batches
+            est_remaining_mins = est_remaining_secs / 60
+            print(f"  ⏱️  Estimated time remaining: {est_remaining_mins:.1f} min", end="\r")
+        
+        # Run inference - process batch with return_all_scores
         batch_results = sentiment_pipe(
             batch,
-            truncation=True,
-            max_length=512,
             return_all_scores=True
         )
         
+        # Handle both single result and batch results
+        if not isinstance(batch_results, list):
+            batch_results = [batch_results]
+        
         for scores in batch_results:
+            # Handle case where scores might be a list of dicts or a single dict
+            if isinstance(scores, dict):
+                scores = [scores]
+            
             # Map labels: LABEL_0=negative, LABEL_1=neutral, LABEL_2=positive
             score_dict = {s["label"]: s["score"] for s in scores}
             
@@ -81,9 +103,20 @@ def run_business_classification(texts, classifier):
     ]
     
     results = []
+    total_batches = (len(texts) + BATCH_SIZE - 1) // BATCH_SIZE
+    start_time = time.time()
     
-    for i in tqdm(range(0, len(texts), BATCH_SIZE), desc="Business Type Classification"):
+    for batch_idx, i in enumerate(tqdm(range(0, len(texts), BATCH_SIZE), desc="Business Type Classification", total=total_batches)):
         batch = texts[i:i + BATCH_SIZE]
+        
+        # Estimate time remaining
+        if batch_idx > 0:
+            elapsed = time.time() - start_time
+            avg_time_per_batch = elapsed / (batch_idx + 1)
+            remaining_batches = total_batches - (batch_idx + 1)
+            est_remaining_secs = avg_time_per_batch * remaining_batches
+            est_remaining_mins = est_remaining_secs / 60
+            print(f"  ⏱️  Estimated time remaining: {est_remaining_mins:.1f} min", end="\r")
         
         for text in batch:
             # Run zero-shot classification
