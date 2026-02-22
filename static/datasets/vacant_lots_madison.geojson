@@ -1,0 +1,1755 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-02-21T19:23:45Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/37308634",
+        "addr:city": "Madison",
+        "addr:housenumber": "3313",
+        "addr:postcode": "53705",
+        "addr:state": "WI",
+        "addr:street": "University Avenue",
+        "building": "retail",
+        "disused:shop": "supermarket",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.4444813,
+              43.0750578
+            ],
+            [
+              -89.4444817,
+              43.0749305
+            ],
+            [
+              -89.4444476,
+              43.0749079
+            ],
+            [
+              -89.4444481,
+              43.0747314
+            ],
+            [
+              -89.4444483,
+              43.0746596
+            ],
+            [
+              -89.4444867,
+              43.0746352
+            ],
+            [
+              -89.444487,
+              43.0745349
+            ],
+            [
+              -89.443922,
+              43.0745341
+            ],
+            [
+              -89.443812,
+              43.0746136
+            ],
+            [
+              -89.4438144,
+              43.0746582
+            ],
+            [
+              -89.4437502,
+              43.074658
+            ],
+            [
+              -89.4437497,
+              43.0748246
+            ],
+            [
+              -89.4436231,
+              43.0748244
+            ],
+            [
+              -89.4436228,
+              43.0749414
+            ],
+            [
+              -89.4437494,
+              43.0749416
+            ],
+            [
+              -89.4437491,
+              43.0750567
+            ],
+            [
+              -89.4444813,
+              43.0750578
+            ]
+          ]
+        ]
+      },
+      "id": "way/37308634"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/43926492",
+        "alt_name": "Verizon Wireless",
+        "brand": "Verizon",
+        "brand:wikidata": "Q919641",
+        "building": "yes",
+        "disused:shop": "deli",
+        "name": "Verizon",
+        "old_name": "Arby's",
+        "old_name:2016-2018": "Sliced Deli",
+        "shop": "mobile_phone",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.5025203,
+              43.0519666
+            ],
+            [
+              -89.5024366,
+              43.0519652
+            ],
+            [
+              -89.5024342,
+              43.0520394
+            ],
+            [
+              -89.5024321,
+              43.0521037
+            ],
+            [
+              -89.5024295,
+              43.0521804
+            ],
+            [
+              -89.5024278,
+              43.0522317
+            ],
+            [
+              -89.5025013,
+              43.052233
+            ],
+            [
+              -89.5025841,
+              43.0522344
+            ],
+            [
+              -89.5025858,
+              43.0521812
+            ],
+            [
+              -89.5025885,
+              43.052101
+            ],
+            [
+              -89.5025905,
+              43.0520394
+            ],
+            [
+              -89.5025928,
+              43.0519679
+            ],
+            [
+              -89.5025203,
+              43.0519666
+            ]
+          ]
+        ]
+      },
+      "id": "way/43926492"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/62164927",
+        "building": "retail",
+        "disused": "yes",
+        "disused:shop": "grocery",
+        "old_name": "Copps Food Center"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.475982,
+              43.052148
+            ],
+            [
+              -89.4755708,
+              43.0521495
+            ],
+            [
+              -89.4755716,
+              43.0522942
+            ],
+            [
+              -89.4755578,
+              43.0523049
+            ],
+            [
+              -89.4755581,
+              43.0523488
+            ],
+            [
+              -89.4755266,
+              43.0523489
+            ],
+            [
+              -89.4755286,
+              43.0526995
+            ],
+            [
+              -89.4755601,
+              43.0526994
+            ],
+            [
+              -89.4755619,
+              43.0530194
+            ],
+            [
+              -89.4755239,
+              43.0530195
+            ],
+            [
+              -89.4755246,
+              43.0531315
+            ],
+            [
+              -89.4758647,
+              43.0531304
+            ],
+            [
+              -89.4758642,
+              43.0530492
+            ],
+            [
+              -89.476324,
+              43.0530478
+            ],
+            [
+              -89.4763188,
+              43.0521465
+            ],
+            [
+              -89.475982,
+              43.052148
+            ]
+          ]
+        ]
+      },
+      "id": "way/62164927"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/86579194",
+        "addr:city": "Madison",
+        "addr:housenumber": "7309",
+        "addr:postcode": "53719",
+        "addr:state": "WI",
+        "addr:street": "West Towne Way",
+        "brand": "Urban Air",
+        "brand:wikidata": "Q110172893",
+        "building": "commercial",
+        "disused:shop": "toys",
+        "email": "info@urbanairmadison.com",
+        "leisure": "trampoline_park",
+        "name": "Urban Air",
+        "official_name": "Urban Air Trampoline and Adventure Park",
+        "old_name": "Toys\"R\"Us",
+        "opening_hours": "Mo-Th 16:00-20:00; Fr 12:00-23:00; Sa 10:00-23:00; Su 10:00-20:00",
+        "phone": "+1-608-467-5330",
+        "website": "https://www.urbanairtrampolinepark.com/locations/wisconsin/madison"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.5080035,
+              43.0539355
+            ],
+            [
+              -89.5079941,
+              43.0543404
+            ],
+            [
+              -89.5079881,
+              43.0544964
+            ],
+            [
+              -89.5088302,
+              43.0545088
+            ],
+            [
+              -89.5088483,
+              43.0545091
+            ],
+            [
+              -89.5088558,
+              43.0542361
+            ],
+            [
+              -89.5089569,
+              43.0542376
+            ],
+            [
+              -89.5089626,
+              43.0540323
+            ],
+            [
+              -89.5088617,
+              43.0540308
+            ],
+            [
+              -89.508864,
+              43.0539482
+            ],
+            [
+              -89.5080035,
+              43.0539355
+            ]
+          ]
+        ]
+      },
+      "id": "way/86579194"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/103183617",
+        "addr:city": "Madison",
+        "addr:housenumber": "7",
+        "addr:postcode": "53703",
+        "addr:state": "WI",
+        "addr:street": "West Main Street",
+        "building": "retail",
+        "disused:shop": "yes",
+        "theme": "irish"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.383348,
+              43.0735201
+            ],
+            [
+              -89.3834538,
+              43.0734454
+            ],
+            [
+              -89.383162,
+              43.0732246
+            ],
+            [
+              -89.3830562,
+              43.0732992
+            ],
+            [
+              -89.383348,
+              43.0735201
+            ]
+          ]
+        ]
+      },
+      "id": "way/103183617"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/105672012",
+        "addr:city": "Madison",
+        "addr:housenumber": "2102",
+        "addr:postcode": "53704",
+        "addr:state": "WI",
+        "addr:street": "East Springs Drive",
+        "building": "yes",
+        "disused:shop": "doityourself",
+        "name": "Tributary Hub",
+        "office": "association",
+        "old_name": "Menards",
+        "opening_hours": "Mo-Fr 08:00-16:00",
+        "website": "https://www.tributaryhub.com/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.295125,
+              43.1277049
+            ],
+            [
+              -89.2952042,
+              43.1279065
+            ],
+            [
+              -89.295265,
+              43.1280614
+            ],
+            [
+              -89.2953136,
+              43.1280512
+            ],
+            [
+              -89.2964653,
+              43.1278103
+            ],
+            [
+              -89.2962185,
+              43.1271821
+            ],
+            [
+              -89.296346,
+              43.1271554
+            ],
+            [
+              -89.2962837,
+              43.126997
+            ],
+            [
+              -89.2961549,
+              43.127024
+            ],
+            [
+              -89.2959691,
+              43.1265509
+            ],
+            [
+              -89.295682,
+              43.126611
+            ],
+            [
+              -89.2956626,
+              43.1265618
+            ],
+            [
+              -89.295575,
+              43.1265801
+            ],
+            [
+              -89.295594,
+              43.1266285
+            ],
+            [
+              -89.2948239,
+              43.1267896
+            ],
+            [
+              -89.2947734,
+              43.1268002
+            ],
+            [
+              -89.2950186,
+              43.1274246
+            ],
+            [
+              -89.2949845,
+              43.1274317
+            ],
+            [
+              -89.2950943,
+              43.1277114
+            ],
+            [
+              -89.295125,
+              43.1277049
+            ]
+          ]
+        ]
+      },
+      "id": "way/105672012"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/107454783",
+        "addr:housenumber": "357",
+        "addr:street": "Price Place",
+        "building": "restaurant",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.452432,
+              43.0706664
+            ],
+            [
+              -89.4521967,
+              43.0706649
+            ],
+            [
+              -89.4521953,
+              43.0710176
+            ],
+            [
+              -89.4521175,
+              43.0710162
+            ],
+            [
+              -89.4521189,
+              43.0711803
+            ],
+            [
+              -89.452365,
+              43.0711807
+            ],
+            [
+              -89.4523945,
+              43.0711606
+            ],
+            [
+              -89.452424,
+              43.0711406
+            ],
+            [
+              -89.452432,
+              43.0706664
+            ]
+          ]
+        ]
+      },
+      "id": "way/107454783"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/297754313",
+        "building": "yes",
+        "building:levels": "3",
+        "disused:shop": "supermarket",
+        "old_name": "Shopko"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.3489489,
+              43.1135627
+            ],
+            [
+              -89.3489489,
+              43.1128696
+            ],
+            [
+              -89.3475381,
+              43.1128656
+            ],
+            [
+              -89.3475435,
+              43.1132768
+            ],
+            [
+              -89.3473718,
+              43.1132729
+            ],
+            [
+              -89.3473772,
+              43.1133708
+            ],
+            [
+              -89.3475381,
+              43.1133708
+            ],
+            [
+              -89.3475381,
+              43.1135549
+            ],
+            [
+              -89.3489489,
+              43.1135627
+            ]
+          ]
+        ]
+      },
+      "id": "way/297754313"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/347311465",
+        "addr:city": "Madison",
+        "addr:housenumber": "708",
+        "addr:postcode": "53703",
+        "addr:state": "WI",
+        "addr:street": "East Johnson Street",
+        "building": "yes",
+        "disused:shop": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.3796218,
+              43.0823365
+            ],
+            [
+              -89.3796261,
+              43.0823335
+            ],
+            [
+              -89.379637,
+              43.0823418
+            ],
+            [
+              -89.3796747,
+              43.0823158
+            ],
+            [
+              -89.379666,
+              43.0823091
+            ],
+            [
+              -89.3797071,
+              43.0822808
+            ],
+            [
+              -89.3795859,
+              43.082187
+            ],
+            [
+              -89.3795027,
+              43.0822444
+            ],
+            [
+              -89.3796218,
+              43.0823365
+            ]
+          ]
+        ]
+      },
+      "id": "way/347311465"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/374720809",
+        "area": "yes",
+        "disused:shop": "department_store",
+        "old_name": "Boston Store"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.5063847,
+              43.0575667
+            ],
+            [
+              -89.5063667,
+              43.0581428
+            ],
+            [
+              -89.5072302,
+              43.0581572
+            ],
+            [
+              -89.5072372,
+              43.0579541
+            ],
+            [
+              -89.5072543,
+              43.0574563
+            ],
+            [
+              -89.5072639,
+              43.0571762
+            ],
+            [
+              -89.5072481,
+              43.0571658
+            ],
+            [
+              -89.5065852,
+              43.0571548
+            ],
+            [
+              -89.506135,
+              43.0571473
+            ],
+            [
+              -89.5061328,
+              43.0572202
+            ],
+            [
+              -89.5060176,
+              43.0572183
+            ],
+            [
+              -89.5060091,
+              43.0574917
+            ],
+            [
+              -89.5061264,
+              43.0574937
+            ],
+            [
+              -89.5061243,
+              43.0575624
+            ],
+            [
+              -89.5063847,
+              43.0575667
+            ]
+          ]
+        ]
+      },
+      "id": "way/374720809"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/433662536",
+        "addr:city": "Madison",
+        "addr:housenumber": "421",
+        "addr:street": "South Park Street",
+        "building": "yes",
+        "check_date": "2024-08-25",
+        "check_date:opening_hours": "2024-08-25",
+        "opening_hours:signed": "no",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.4005755,
+              43.0624823
+            ],
+            [
+              -89.4005757,
+              43.0623056
+            ],
+            [
+              -89.4003557,
+              43.062306
+            ],
+            [
+              -89.400356,
+              43.0624086
+            ],
+            [
+              -89.4003376,
+              43.0624086
+            ],
+            [
+              -89.4003379,
+              43.0624833
+            ],
+            [
+              -89.4005755,
+              43.0624823
+            ]
+          ]
+        ]
+      },
+      "id": "way/433662536"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/456695749",
+        "addr:housenumber": "1639",
+        "addr:street": "Monroe Street",
+        "building": "retail",
+        "building:levels": "2",
+        "disused:shop": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.4148329,
+              43.0663128
+            ],
+            [
+              -89.4148923,
+              43.0662731
+            ],
+            [
+              -89.4147429,
+              43.066154
+            ],
+            [
+              -89.4146836,
+              43.0661936
+            ],
+            [
+              -89.4148157,
+              43.0662991
+            ],
+            [
+              -89.4148329,
+              43.0663128
+            ]
+          ]
+        ]
+      },
+      "id": "way/456695749"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/457429394",
+        "building": "retail",
+        "building:levels": "1",
+        "disused:shop": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.406125,
+              43.0676325
+            ],
+            [
+              -89.406195,
+              43.0676327
+            ],
+            [
+              -89.4061955,
+              43.0675548
+            ],
+            [
+              -89.4061254,
+              43.0675546
+            ],
+            [
+              -89.406125,
+              43.0676325
+            ]
+          ]
+        ]
+      },
+      "id": "way/457429394"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/669758023",
+        "addr:city": "Madison",
+        "addr:housenumber": "4245",
+        "addr:postcode": "53711",
+        "addr:state": "WI",
+        "addr:street": "West Beltline Frontage Road",
+        "building": "yes",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.4456527,
+              43.0343159
+            ],
+            [
+              -89.4456552,
+              43.0340956
+            ],
+            [
+              -89.4455689,
+              43.0340951
+            ],
+            [
+              -89.4455679,
+              43.0341831
+            ],
+            [
+              -89.4454289,
+              43.0341822
+            ],
+            [
+              -89.4454281,
+              43.0342491
+            ],
+            [
+              -89.4454058,
+              43.0342489
+            ],
+            [
+              -89.445405,
+              43.0343144
+            ],
+            [
+              -89.4456527,
+              43.0343159
+            ]
+          ]
+        ]
+      },
+      "id": "way/669758023"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/683558076",
+        "building": "commercial",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.307439,
+              43.0735114
+            ],
+            [
+              -89.3074405,
+              43.0733796
+            ],
+            [
+              -89.3071598,
+              43.0733779
+            ],
+            [
+              -89.3071583,
+              43.0735097
+            ],
+            [
+              -89.307439,
+              43.0735114
+            ]
+          ]
+        ]
+      },
+      "id": "way/683558076"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/987655471",
+        "addr:housenumber": "2611",
+        "addr:street": "Monroe",
+        "building": "retail",
+        "disused:shop": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.4280487,
+              43.0575989
+            ],
+            [
+              -89.4281009,
+              43.0575998
+            ],
+            [
+              -89.428243,
+              43.0575043
+            ],
+            [
+              -89.4280564,
+              43.0573701
+            ],
+            [
+              -89.4278923,
+              43.057479
+            ],
+            [
+              -89.4280487,
+              43.0575989
+            ]
+          ]
+        ]
+      },
+      "id": "way/987655471"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1134399617",
+        "building": "yes",
+        "building:part": "restaurant",
+        "level": "0",
+        "shop": "vacant",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.4523507,
+              43.0719003
+            ],
+            [
+              -89.4521314,
+              43.0718996
+            ],
+            [
+              -89.4521319,
+              43.0719675
+            ],
+            [
+              -89.452195,
+              43.0719669
+            ],
+            [
+              -89.4521943,
+              43.0719545
+            ],
+            [
+              -89.4523509,
+              43.071955
+            ],
+            [
+              -89.4523507,
+              43.0719003
+            ]
+          ]
+        ]
+      },
+      "id": "way/1134399617"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1135060521",
+        "building:part": "retail",
+        "disused:shop": "department_store",
+        "indoor": "area",
+        "level": "0",
+        "old_name": "Gordmans"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.3046551,
+              43.1264867
+            ],
+            [
+              -89.3046348,
+              43.1263877
+            ],
+            [
+              -89.3046866,
+              43.1263834
+            ],
+            [
+              -89.3046687,
+              43.126283
+            ],
+            [
+              -89.3047185,
+              43.1262786
+            ],
+            [
+              -89.3046541,
+              43.1259734
+            ],
+            [
+              -89.3044966,
+              43.1259911
+            ],
+            [
+              -89.3043128,
+              43.1260117
+            ],
+            [
+              -89.3042748,
+              43.1258251
+            ],
+            [
+              -89.3037997,
+              43.1258797
+            ],
+            [
+              -89.3038469,
+              43.1260984
+            ],
+            [
+              -89.3038303,
+              43.1261
+            ],
+            [
+              -89.3038094,
+              43.1261021
+            ],
+            [
+              -89.3038272,
+              43.1261996
+            ],
+            [
+              -89.3038513,
+              43.1263315
+            ],
+            [
+              -89.3038865,
+              43.1265244
+            ],
+            [
+              -89.303896,
+              43.1265762
+            ],
+            [
+              -89.3046551,
+              43.1264867
+            ]
+          ]
+        ]
+      },
+      "id": "way/1135060521"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/591443374",
+        "addr:city": "Madison",
+        "addr:housenumber": "1",
+        "addr:postcode": "53719",
+        "addr:state": "WI",
+        "addr:street": "West Towne Mall",
+        "alt_name": "Cheesecake Factory",
+        "amenity": "restaurant",
+        "brand": "The Cheesecake Factory",
+        "brand:wikidata": "Q1045842",
+        "check_date": "2025-07-13",
+        "cuisine": "american",
+        "disused:shop": "electronics",
+        "name": "The Cheesecake Factory",
+        "old_name": "Radio Shack",
+        "opening_hours": "Mo-Th 11:00-22:00; Fr,Sa 11:00-23:00; Su 10:00-22:00",
+        "phone": "+1 608-824-2370",
+        "toilets:wheelchair": "yes",
+        "website": "https://locations.thecheesecakefactory.com/wi/madison-190.html",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.5049543,
+          43.0574728
+        ]
+      },
+      "id": "node/591443374"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/956773581",
+        "disused:self_service": "yes",
+        "disused:shop": "laundry"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3414668,
+          43.0940178
+        ]
+      },
+      "id": "node/956773581"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/956773894",
+        "disused:shop": "office_supplies",
+        "name": "Office Supplies"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3152071,
+          43.0972453
+        ]
+      },
+      "id": "node/956773894"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1182271388",
+        "check_date": "2024-08-26",
+        "disused:shop": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3874147,
+          43.0748612
+        ]
+      },
+      "id": "node/1182271388"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2296195347",
+        "addr:city": "Madison",
+        "addr:housenumber": "546",
+        "addr:postcode": "53703",
+        "addr:street": "West Washington Avenue",
+        "check_date": "2025-09-13",
+        "note": "appears to be actively used as a ghost kitchen. no direct customer access",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3923898,
+          43.069185
+        ]
+      },
+      "id": "node/2296195347"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2522752349",
+        "addr:city": "Madison",
+        "addr:housenumber": "449",
+        "addr:postcode": "53703",
+        "addr:state": "WI",
+        "addr:street": "State Street",
+        "addr:unit": "G",
+        "disused:shop": "yes",
+        "level": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3934014,
+          43.0746247
+        ]
+      },
+      "id": "node/2522752349"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2522752354",
+        "addr:city": "Madison",
+        "addr:housenumber": "305",
+        "addr:postcode": "53703",
+        "addr:state": "WI",
+        "addr:street": "State Street",
+        "disused:shop": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3903719,
+          43.0746727
+        ]
+      },
+      "id": "node/2522752354"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2522840403",
+        "check_date": "2023-08-28",
+        "disused:shop": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3986815,
+          43.073012
+        ]
+      },
+      "id": "node/2522840403"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3240429353",
+        "check_date": "2023-04-01",
+        "disused:shop": "dry_cleaning",
+        "drive_through": "yes",
+        "name": "Klinke Cleaners",
+        "phone": "+1-608-268-6868",
+        "website": "https://www.klinkecleaners.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3989271,
+          43.0574313
+        ]
+      },
+      "id": "node/3240429353"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3245483866",
+        "addr:city": "Westland Plaza",
+        "addr:housenumber": "6741",
+        "addr:postcode": "53719-1013",
+        "addr:state": "WI",
+        "addr:street": "Odana Road",
+        "disused:shop": "craft",
+        "old_name": "JOANN"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.4999204,
+          43.0551306
+        ]
+      },
+      "id": "node/3245483866"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4420709485",
+        "addr:city": "Madison",
+        "addr:housenumber": "1726",
+        "addr:postcode": "53704",
+        "addr:state": "WI",
+        "addr:street": "Fordem Avenue",
+        "shop": "vacant",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3641369,
+          43.0945861
+        ]
+      },
+      "id": "node/4420709485"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4471944660",
+        "addr:city": "Madison",
+        "addr:housenumber": "3964",
+        "addr:postcode": "53714",
+        "addr:state": "WI",
+        "addr:street": "Commercial Avenue",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3176002,
+          43.1086945
+        ]
+      },
+      "id": "node/4471944660"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4925300456",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3953648,
+          43.0407409
+        ]
+      },
+      "id": "node/4925300456"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5029100532",
+        "disused:shop": "appliance"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3411095,
+          43.0939931
+        ]
+      },
+      "id": "node/5029100532"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5584566093",
+        "addr:city": "Madison",
+        "addr:country": "US",
+        "addr:housenumber": "724",
+        "addr:postcode": "53715",
+        "addr:state": "WI",
+        "addr:street": "West Johnson Street",
+        "disused:shop": "books"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3983984,
+          43.0722283
+        ]
+      },
+      "id": "node/5584566093"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5642484847",
+        "disused:shop": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3819968,
+          43.0749071
+        ]
+      },
+      "id": "node/5642484847"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5661434236",
+        "disused:shop": "yes",
+        "donation:compensation:payment": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3903163,
+          43.0752286
+        ]
+      },
+      "id": "node/5661434236"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6340379852",
+        "check_date": "2024-09-22",
+        "disused:shop": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.39238,
+          43.0749307
+        ]
+      },
+      "id": "node/6340379852"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7126784708",
+        "addr:city": "Madison",
+        "addr:housenumber": "316",
+        "addr:postcode": "53703",
+        "addr:state": "WI",
+        "addr:street": "West Washington Avenue",
+        "addr:unit": "125",
+        "disused:shop": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.387835,
+          43.0726154
+        ]
+      },
+      "id": "node/7126784708"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7216954213",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.392104,
+          43.0747156
+        ]
+      },
+      "id": "node/7216954213"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7259543422",
+        "check_date": "2024-08-26",
+        "disused:shop": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.390416,
+          43.074288
+        ]
+      },
+      "id": "node/7259543422"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7324078516",
+        "addr:city": "Madison",
+        "addr:housenumber": "152",
+        "addr:postcode": "53703",
+        "addr:state": "WI",
+        "addr:street": "West Johnson Street",
+        "addr:unit": "212",
+        "check_date": "2024-09-26",
+        "disused:shop": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3899089,
+          43.0750199
+        ]
+      },
+      "id": "node/7324078516"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8319452818",
+        "addr:city": "Madison",
+        "addr:housenumber": "432",
+        "addr:postcode": "53703",
+        "addr:state": "WI",
+        "addr:street": "West Gorham Street",
+        "check_date": "2025-10-07",
+        "disused:shop": "variety_store",
+        "was:name": "DGX"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3944438,
+          43.0733849
+        ]
+      },
+      "id": "node/8319452818"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8505198887",
+        "addr:housenumber": "318",
+        "addr:street": "State Street",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3907208,
+          43.0749005
+        ]
+      },
+      "id": "node/8505198887"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8773830624",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3611411,
+          43.1283899
+        ]
+      },
+      "id": "node/8773830624"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9427078625",
+        "addr:city": "Madison",
+        "addr:full": "2148 West Beltline Highway\n\nMadison, WI 53713-2340",
+        "addr:housenumber": "2148",
+        "addr:postcode": "53713",
+        "addr:state": "WI",
+        "addr:street": "West Beltline Highway",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.4151298,
+          43.0366848
+        ]
+      },
+      "id": "node/9427078625"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9898292787",
+        "check_date": "2025-09-13",
+        "disused:shop": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.392177,
+          43.0693148
+        ]
+      },
+      "id": "node/9898292787"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9929920560",
+        "addr:city": "Madison",
+        "addr:country": "US",
+        "addr:housenumber": "5944",
+        "addr:postcode": "53719",
+        "addr:state": "WI",
+        "addr:street": "Odana Road",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.4844202,
+          43.0531595
+        ]
+      },
+      "id": "node/9929920560"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11074151817",
+        "addr:city": "Madison",
+        "addr:housenumber": "2438",
+        "addr:postcode": "53704",
+        "addr:state": "WI",
+        "addr:street": "Winnebago Street",
+        "bar": "yes",
+        "outdoor_seating": "yes",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3487346,
+          43.0986037
+        ]
+      },
+      "id": "node/11074151817"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11165568572",
+        "addr:city": "Madison",
+        "addr:housenumber": "1896",
+        "addr:postcode": "53704",
+        "addr:state": "WI",
+        "addr:street": "East Washington Avenue",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3599731,
+          43.0922149
+        ]
+      },
+      "id": "node/11165568572"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11167096805",
+        "addr:postcode": "53715",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3920584,
+          43.050067
+        ]
+      },
+      "id": "node/11167096805"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11477165381",
+        "addr:housenumber": "1923",
+        "addr:street": "Monroe Street",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.4181216,
+          43.0640971
+        ]
+      },
+      "id": "node/11477165381"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13190701833",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3685604,
+          43.0804576
+        ]
+      },
+      "id": "node/13190701833"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13270880290",
+        "shop": "vacant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.3856372,
+          43.0754897
+        ]
+      },
+      "id": "node/13270880290"
+    }
+  ]
+}
