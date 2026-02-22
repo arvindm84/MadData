@@ -1,11 +1,9 @@
 """
 Step 5: Google Trends Analysis for Madison, WI
 ===============================================
-Tracks search interest for store types, unmet needs,
-neighborhood-specific searches, and brand searches.
-
-pytrends limits 5 terms per request, so we batch automatically.
-Results saved to google_trends_results.csv and a summary report.
+Searches 14 store categories using their keyword lists.
+Each keyword is searched individually, then results are
+averaged together to get one score per category.
 
 Install deps:
     pip install pytrends pandas
@@ -14,245 +12,225 @@ Install deps:
 import time
 import json
 import csv
-import pandas as pd
 from pathlib import Path
 from pytrends.request import TrendReq
 
-# ── Madison DMA geo code ──────────────────────────────────────────────────────
-GEO       = "US-WI-669"   # Madison, WI Designated Market Area
-TIMEFRAME = "today 5-y"   # Last 5 years
+GEO       = "US-WI-669"   # Madison, WI DMA
+TIMEFRAME = "today 5-y"
 
 OUTPUT_CSV     = Path("google_trends_results.csv")
 OUTPUT_SUMMARY = Path("google_trends_summary.json")
 
-# ── Search term groups ────────────────────────────────────────────────────────
+# ── 14 Categories with their search keywords ──────────────────────────────────
 
-STORE_TYPES = [
-    "grocery store",
-    "affordable grocery",
-    "fresh produce",
-    "food desert",
-    "pharmacy",
-    "laundromat",
-    "coffee shop",
-    "restaurant",
-    "hardware store",
-    "urgent care",
-    "daycare",
-    "gym",
-]
-
-UNMET_NEED = [
-    "nearest grocery store",
-    "grocery store near me",
-    "cheap groceries",
-    "healthy food options",
-    "late night food",
-    "open sunday",
-]
-
-NEIGHBORHOOD_SPECIFIC = [
-    "south madison grocery",
-    "allied drive food",
-    "park street restaurants",
-    "east side madison food",
-    "near east side madison",
-]
-
-BRAND_SEARCHES = [
-    "trader joes madison",
-    "whole foods madison",
-    "aldi madison",
-    "costco madison",
-    "target madison",
-]
-
-# Combine all into one list with category labels
-ALL_TERMS = (
-    [(t, "store_type")        for t in STORE_TYPES] +
-    [(t, "unmet_need")        for t in UNMET_NEED] +
-    [(t, "neighborhood")      for t in NEIGHBORHOOD_SPECIFIC] +
-    [(t, "brand")             for t in BRAND_SEARCHES]
-)
+CATEGORIES = {
+    "coffee shop":        ["coffee", "cafe", "espresso", "latte", "cappuccino"],
+    "restaurant":         ["restaurant", "food", "dining", "lunch", "dinner", "brunch"],
+    "pharmacy":           ["pharmacy", "drugstore", "prescriptions", "CVS", "Walgreens", "medicine"],
+    "grocery store":      ["grocery", "groceries", "supermarket", "produce", "Whole Foods", "Aldi"],
+    "bar":                ["bar", "drinks", "beer", "cocktails", "nightlife", "brewery", "pub"],
+    "gym":                ["gym", "fitness", "workout", "exercise", "yoga", "crossfit"],
+    "late night food":    ["late night", "2am", "midnight", "after hours", "open late"],
+    "bakery":             ["bakery", "bread", "pastry", "donuts", "croissant", "baked goods"],
+    "convenience store":  ["convenience store", "corner store", "bodega", "7-eleven"],
+    "coworking space":    ["coworking", "cowork", "workspace", "WeWork", "shared office"],
+    "daycare":            ["daycare", "childcare", "nursery", "preschool", "kids"],
+    "hardware store":     ["hardware", "tools", "Home Depot", "lumber", "plumbing"],
+    "urgent care":        ["urgent care", "clinic", "walk-in", "emergency", "doctor"],
+    "general business":   [],   # fallback — gets score of 0
+}
 
 
-# ── Core functions ────────────────────────────────────────────────────────────
+# ── Helpers ───────────────────────────────────────────────────────────────────
 
 def batch(lst, size=5):
-    """Split a list into chunks of `size`."""
     for i in range(0, len(lst), size):
         yield lst[i:i + size]
 
 
-def fetch_trends(pytrends, terms, geo, timeframe):
+def fetch_batch(pytrends, terms):
     """
-    Fetch interest_over_time for a list of up to 5 terms.
-    Returns a DataFrame or None on failure.
+    Fetch up to 5 terms in a single request — the correct way to use pytrends.
+    Returns a dict of {term: stats} for all terms in the batch.
     """
     try:
-        pytrends.build_payload(terms, geo=geo, timeframe=timeframe)
+        pytrends.build_payload(terms, geo=GEO, timeframe=TIMEFRAME)
         df = pytrends.interest_over_time()
         if df.empty:
-            return None
-        # Drop the isPartial column
+            return {}
         if "isPartial" in df.columns:
             df = df.drop(columns=["isPartial"])
-        return df
+
+        results = {}
+        for term in terms:
+            if term not in df.columns:
+                continue
+            series     = df[term]
+            avg        = round(float(series.mean()), 1)
+            recent_avg = round(float(series.iloc[-13:].mean()), 1)
+            trend_diff = round(recent_avg - avg, 1)
+            trend_dir  = "rising" if trend_diff > 2 else "falling" if trend_diff < -2 else "stable"
+            peak_val   = int(series.max())
+            peak_date  = str(series.idxmax().date()) if peak_val > 0 else "N/A"
+            results[term] = {
+                "avg_interest":    avg,
+                "recent_avg":      recent_avg,
+                "trend_vs_avg":    trend_diff,
+                "trend_direction": trend_dir,
+                "peak_interest":   peak_val,
+                "peak_date":       peak_date,
+            }
+        return results
     except Exception as e:
-        print(f"  [!] Error fetching {terms}: {e}")
-        return None
-
-
-def fetch_related_queries(pytrends, term, geo, timeframe):
-    """
-    Get the top related queries for a single term.
-    Useful for discovering what else people search alongside store terms.
-    """
-    try:
-        pytrends.build_payload([term], geo=geo, timeframe=timeframe)
-        related = pytrends.related_queries()
-        top = related.get(term, {}).get("top")
-        if top is not None and not top.empty:
-            return top.head(5).to_dict("records")
-    except Exception as e:
-        print(f"  [!] Related queries error for '{term}': {e}")
-    return []
-
-
-def summarize_df(df):
-    """
-    For each term in a DataFrame, compute:
-    - average interest (0-100)
-    - peak interest
-    - peak date
-    - recent trend (last 3 months avg vs overall avg)
-    """
-    summary = {}
-    for col in df.columns:
-        series     = df[col]
-        avg        = round(series.mean(), 1)
-        peak_val   = int(series.max())
-        peak_date  = str(series.idxmax().date()) if peak_val > 0 else "N/A"
-        recent_avg = round(series.iloc[-13:].mean(), 1)  # last ~3 months
-        trend      = round(recent_avg - avg, 1)          # positive = rising
-
-        summary[col] = {
-            "avg_interest":    avg,
-            "peak_interest":   peak_val,
-            "peak_date":       peak_date,
-            "recent_avg":      recent_avg,
-            "trend_vs_avg":    trend,
-            "trend_direction": "rising" if trend > 2 else "falling" if trend < -2 else "stable",
-        }
-    return summary
+        print(f"    [!] Batch fetch error: {e}")
+        return {}
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def run_trends_analysis():
     print("Initializing pytrends...")
-    pytrends = TrendReq(hl="en-US", tz=360)  # tz=360 = US Central
+    pytrends = TrendReq(hl="en-US", tz=360)
 
-    all_rows    = []   # For CSV output
-    all_summary = {}   # For JSON summary
-    related_out = {}   # Related queries
+    category_summary = {}   # Final per-category scores
+    term_detail      = {}   # Raw per-term data for reference
+    all_csv_rows     = []
 
-    # Group terms by category for batching
-    categories = {}
-    for term, cat in ALL_TERMS:
-        categories.setdefault(cat, []).append(term)
+    for category, keywords in CATEGORIES.items():
+        print(f"\n── {category} ({len(keywords)} keywords) ────────────────────────")
 
-    for category, terms in categories.items():
-        print(f"\n── Category: {category} ({len(terms)} terms) ──────────────────")
+        if not keywords:
+            # general business fallback
+            category_summary[category] = {
+                "category_avg_interest":    0.0,
+                "category_trend_direction": "stable",
+                "category_trend_vs_avg":    0.0,
+                "keywords_searched":        [],
+                "keyword_scores":           {},
+            }
+            print("  (no keywords — fallback category, score = 0)")
+            continue
 
-        for term_batch in batch(terms, 5):
-            print(f"  Fetching: {term_batch}")
-            df = fetch_trends(pytrends, term_batch, GEO, TIMEFRAME)
+        keyword_scores = {}
 
-            if df is None:
-                print(f"  [!] No data returned for this batch")
-                time.sleep(5)
-                continue
+        # Fetch all keywords in batches of 5 (one request per batch)
+        for i in range(0, len(keywords), 5):
+            batch_terms = keywords[i:i+5]
+            print(f"  Fetching batch: {batch_terms}")
+            results = fetch_batch(pytrends, batch_terms)
 
-            # Summarize
-            summary = summarize_df(df)
-            for term, stats in summary.items():
-                stats["category"] = category
-                all_summary[term] = stats
-                print(f"    {term:<35} avg={stats['avg_interest']:5.1f}  "
-                      f"peak={stats['peak_interest']:3d} ({stats['peak_date']})  "
-                      f"trend={stats['trend_direction']}")
-
-            # Flatten to rows for CSV
-            for date, row in df.iterrows():
-                for term in df.columns:
-                    all_rows.append({
-                        "date":     str(date.date()),
-                        "term":     term,
-                        "category": category,
-                        "interest": int(row[term]),
+            for keyword in batch_terms:
+                result = results.get(keyword)
+                if result and result["avg_interest"] > 0:
+                    keyword_scores[keyword] = result
+                    print(f"    {keyword:<20} avg={result['avg_interest']:5.1f}  "
+                          f"trend={result['trend_direction']:<8}  "
+                          f"peak={result['peak_interest']}")
+                    all_csv_rows.append({
+                        "category":        category,
+                        "keyword":         keyword,
+                        "avg_interest":    result["avg_interest"],
+                        "recent_avg":      result["recent_avg"],
+                        "trend_direction": result["trend_direction"],
+                        "trend_vs_avg":    result["trend_vs_avg"],
+                        "peak_interest":   result["peak_interest"],
+                        "peak_date":       result["peak_date"],
                     })
+                else:
+                    keyword_scores[keyword] = {"avg_interest": 0.0, "trend_direction": "stable", "trend_vs_avg": 0.0}
+                    print(f"    {keyword:<20} no data")
 
-            time.sleep(3)  # Respect rate limits — pytrends gets blocked if too fast
+            time.sleep(5)   # One pause per batch, not per keyword
 
-        # Fetch related queries for top terms in this category
-        # (just the first term per category to avoid too many requests)
-        top_term = terms[0]
-        print(f"  Fetching related queries for: '{top_term}'")
-        related  = fetch_related_queries(pytrends, top_term, GEO, TIMEFRAME)
-        if related:
-            related_out[top_term] = related
-            print(f"    Top related: {[r['query'] for r in related[:3]]}")
-        time.sleep(3)
+        # ── Aggregate keyword scores into one category score ──────────────────
+        valid_scores = [v["avg_interest"] for v in keyword_scores.values() if v["avg_interest"] > 0]
+        avg_interest = round(sum(valid_scores) / len(valid_scores), 1) if valid_scores else 0.0
+
+        # Trend direction = majority vote across keywords
+        trend_votes = [v["trend_direction"] for v in keyword_scores.values()]
+        trend_dir   = max(set(trend_votes), key=trend_votes.count)
+        trend_avg   = round(sum(v["trend_vs_avg"] for v in keyword_scores.values()) / len(keyword_scores), 1)
+
+        category_summary[category] = {
+            "category_avg_interest":    avg_interest,
+            "category_trend_direction": trend_dir,
+            "category_trend_vs_avg":    trend_avg,
+            "keywords_searched":        list(keyword_scores.keys()),
+            "keyword_scores":           keyword_scores,
+        }
+
+        print(f"  → CATEGORY SCORE: avg={avg_interest}  trend={trend_dir}  ({len(valid_scores)}/{len(keywords)} keywords had data)")
 
     # ── Save outputs ──────────────────────────────────────────────────────────
 
-    # CSV — full time series
-    if all_rows:
-        with open(OUTPUT_CSV, "w", newline="", encoding="utf-8") as f:
-            writer = csv.DictWriter(f, fieldnames=["date", "term", "category", "interest"])
-            writer.writeheader()
-            writer.writerows(all_rows)
-        print(f"\n✓ Time series saved → {OUTPUT_CSV} ({len(all_rows):,} rows)")
+    with open(OUTPUT_CSV, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=[
+            "category", "keyword", "avg_interest", "recent_avg",
+            "trend_direction", "trend_vs_avg", "peak_interest", "peak_date"
+        ])
+        writer.writeheader()
+        writer.writerows(all_csv_rows)
+    print(f"\n✓ Keyword detail saved → {OUTPUT_CSV}")
 
-    # JSON — summary stats + related queries
-    output = {
-        "geo":          GEO,
-        "timeframe":    TIMEFRAME,
-        "summary":      all_summary,
-        "related_queries": related_out,
-    }
+    output = {"geo": GEO, "timeframe": TIMEFRAME, "categories": category_summary}
     OUTPUT_SUMMARY.write_text(json.dumps(output, indent=2))
-    print(f"✓ Summary saved → {OUTPUT_SUMMARY}")
+    print(f"✓ Category summary saved → {OUTPUT_SUMMARY}")
 
-    # ── Print final ranked report ─────────────────────────────────────────────
+    # ── Final ranked report ───────────────────────────────────────────────────
     print("\n" + "="*60)
-    print("  MADISON SEARCH DEMAND RANKING")
+    print("  MADISON STORE DEMAND — CATEGORY RANKINGS")
     print("="*60)
+    print(f"\n  {'Category':<22} {'Avg Interest':>13}  {'Trend':<10}")
+    print("  " + "-"*48)
 
-    # Sort all terms by avg interest descending
-    ranked = sorted(all_summary.items(), key=lambda x: x[1]["avg_interest"], reverse=True)
+    ranked = sorted(
+        category_summary.items(),
+        key=lambda x: x[1]["category_avg_interest"],
+        reverse=True
+    )
+    for cat, data in ranked:
+        print(f"  {cat:<22} {data['category_avg_interest']:>13.1f}  {data['category_trend_direction']:<10}")
 
-    print(f"\n{'Term':<35} {'Avg':>5}  {'Peak':>5}  {'Trend':<8}  Category")
-    print("-"*75)
-    for term, stats in ranked:
-        print(f"  {term:<33} {stats['avg_interest']:>5.1f}  "
-              f"{stats['peak_interest']:>5d}  "
-              f"{stats['trend_direction']:<8}  "
-              f"{stats['category']}")
+    print("\n── Rising Categories ─────────────────────────────────")
+    for cat, data in ranked:
+        if data["category_trend_direction"] == "rising":
+            print(f"  {cat:<22} +{data['category_trend_vs_avg']:.1f} vs avg")
 
-    # Brand gap analysis — these are stores Madison doesn't have
-    print("\n── Brand Gap Analysis (stores people search for but may not exist) ──")
-    brand_terms = {k: v for k, v in all_summary.items() if v["category"] == "brand"}
-    for term, stats in sorted(brand_terms.items(), key=lambda x: x[1]["avg_interest"], reverse=True):
-        print(f"  {term:<30} avg interest: {stats['avg_interest']:>5.1f}  {stats['trend_direction']}")
+    # ── Final Trends Score (0-100) per category ──────────────────────────────
+    # Step 1: multiply raw avg by trend multiplier
+    # Step 2: normalize so the highest result = 100 (not capped)
+    # This preserves differences between categories instead of flattening them
 
-    print("\n── Rising Trends (searches growing recently) ──────────────────────")
-    rising = [(t, s) for t, s in all_summary.items() if s["trend_direction"] == "rising"]
-    for term, stats in sorted(rising, key=lambda x: x[1]["trend_vs_avg"], reverse=True):
-        print(f"  {term:<35} +{stats['trend_vs_avg']:.1f} vs avg")
+    TREND_MULTIPLIERS = {"rising": 1.25, "stable": 1.00, "falling": 0.75}
 
-    return all_summary
+    raw_scores = {
+        cat: data["category_avg_interest"] * TREND_MULTIPLIERS[data["category_trend_direction"]]
+        for cat, data in category_summary.items()
+    }
+    max_raw = max(raw_scores.values()) if any(v > 0 for v in raw_scores.values()) else 1
+
+    print("\n" + "="*60)
+    print("  FINAL TRENDS SCORES (0-100) - use in combined scorer")
+    print("="*60)
+    print(f"\n  Category               Avg     Trend       x Mult   Final Score")
+    print("  " + "-"*62)
+
+    trends_scores = {}
+    for cat, data in ranked:
+        avg       = data["category_avg_interest"]
+        trend_dir = data["category_trend_direction"]
+        mult      = TREND_MULTIPLIERS[trend_dir]
+        raw       = raw_scores[cat]
+        final     = round((raw / max_raw) * 100, 1)
+        trends_scores[cat] = final
+        data["trends_final_score"] = final
+        print(f"  {cat:<22}  {avg:>5.1f}  {trend_dir:<10}  x{mult:.2f}  {final:>8.1f}")
+
+    output = {"geo": GEO, "timeframe": TIMEFRAME, "categories": category_summary}
+    OUTPUT_SUMMARY.write_text(json.dumps(output, indent=2))
+    print(f"\n Scores saved to {OUTPUT_SUMMARY}")
+
+    return category_summary
 
 
 if __name__ == "__main__":
