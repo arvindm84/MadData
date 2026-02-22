@@ -128,4 +128,5 @@ def calculate_business_score():
     return final_data
 
 if __name__ == "__main__":
-    print(calculate_business_score())
+    business_scores = calculate_business_score()
+    business_scores.to_csv('data/processed/business_scores.csv')
