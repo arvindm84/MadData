@@ -1,0 +1,127 @@
+/* ============================================
+   Venture Matchmaker styling
+   ============================================ */
+
+.venture-main {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 24px 4rem;
+    text-align: center;
+}
+
+.venture-main h1 {
+    font-size: 4.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.venture-intro {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin: 0 auto 2.5rem;
+    max-width: 750px;
+}
+
+/* Search Bar Wrapper */
+.venture-search-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    background: #1e1e1e;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Input Field */
+.venture-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    font-family: inherit;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.venture-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.venture-input:focus {
+    border-color: #6c3baa;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 0 4px rgba(108, 59, 170, 0.15);
+}
+
+/* Submit Button */
+.venture-submit {
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: inherit;
+    color: #ffffff;
+    background: #6c3baa;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto;
+}
+
+.venture-submit:hover {
+    background: #48227a;
+    transform: translateY(-2px);
+}
+
+.venture-submit:active {
+    transform: translateY(0);
+}
+
+/* Results Area */
+.venture-results {
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(20, 20, 20, 0.5);
+    border: 2px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.venture-results-placeholder {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+@media (min-width: 768px) {
+    .venture-search-wrap {
+        flex-direction: row;
+        padding: 1.5rem;
+    }
+
+    .venture-input {
+        margin-bottom: 0;
+        margin-right: 1rem;
+        flex: 1;
+    }
+}

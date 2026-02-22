@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacancy Map - MadData</title>
+    <link rel="stylesheet" href="../css/main-styles.css">
+    <link rel="stylesheet" href="../css/map-styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="../index.html" class="nav-brand">MadData</a>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="map.html">Map</a>
+            <a href="venture.html">Ventures</a>
+        </div>
+    </nav>
+    <main class="map-main">
+        <h1>Interactive Vacancy Map</h1>
+        <p class="map-info">Explore Madison's Retail Lots. This geospatial heatmap shows where demand is unmet and
+            opportunities are highest.</p>
+
+        <div id="map" class="map-box" aria-label="Interactive map of Madison"></div>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script>
+        (function () {
+            var mapEl = document.getElementById('map');
+            if (!mapEl) return;
+
+            var madison = [43.0760, -89.3900];
+            var map = L.map('map', { zoomControl: false }).setView(madison, 14);
+
+            L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(map);
+
+            var addressPoints = [
+                [43.0746, -89.3900, 0.9], [43.0740, -89.3920, 0.8], [43.0725, -89.3950, 0.6],
+                [43.0750, -89.3850, 0.7], [43.0760, -89.3820, 0.9], [43.0730, -89.3800, 0.6],
+                [43.0800, -89.3700, 0.8], [43.0820, -89.3650, 0.9], [43.0840, -89.3600, 0.5],
+                [43.0680, -89.4000, 0.7], [43.0670, -89.4050, 0.9], [43.0650, -89.4100, 0.6],
+                [43.0750, -89.4080, 0.8], [43.0760, -89.4120, 0.5], [43.0740, -89.4150, 0.6]
+            ];
+
+            var heat = L.heatLayer(addressPoints, {
+                radius: 35,
+                blur: 25,
+                maxZoom: 14,
+                gradient: { 0.2: '#00f', 0.4: '#0ff', 0.6: '#0f0', 0.8: '#ff0', 1.0: '#f00' }
+            }).addTo(map);
+
+            var customIcon = L.divIcon({
+                className: 'desert-marker',
+                html: '<div class="pulse-marker"></div>',
+                iconSize: [20, 20]
+            });
+
+            var deserts = [
+                { lat: 43.0746, lng: -89.3900, name: 'State St Vacancy', demand: 'High demand for late-night food.' },
+                { lat: 43.0760, lng: -89.3820, name: 'Capitol Square Spot', demand: 'High demand for specialty coffee.' },
+                { lat: 43.0820, lng: -89.3650, name: 'Willy St Shell', demand: 'Community needs a fresh grocer.' },
+                { lat: 43.0670, lng: -89.4050, name: 'Regent St Opportunity', demand: 'Ideal for sports apparel.' }
+            ];
+
+            deserts.forEach(function (d) {
+                L.marker([d.lat, d.lng], { icon: customIcon }).addTo(map)
+                    .bindPopup('<b>' + d.name + '</b><br><i>Retail Desert Match</i><br>' + d.demand);
+            })
+
+            setTimeout(function () {
+                map.invalidateSize();
+            }, 500);
+        })();
+    </script>
+
+    <footer class="footer">© 2025 MadData. All Rights Reserved.</footer>
+</body>
+
+</html>
