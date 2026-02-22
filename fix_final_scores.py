@@ -16,7 +16,6 @@ def main():
     initial_rows = len(df)
     print(f"Initial row count: {initial_rows}")
 
-    # Drop duplicates keeping only the first occurrence
     df_clean = df.drop_duplicates(subset=['id', 'business_type'], keep='first')
     
     clean_rows = len(df_clean)
@@ -26,49 +25,42 @@ def main():
     # Verifications
     print("\n--- Verifications ---")
     
-    # 3. Verifies the result has exactly 676 rows
     if clean_rows == 676:
-        print("✅ Row count is exactly 676.")
+        print("[OK] Row count is exactly 676.")
     else:
-        print(f"❌ Warning: Row count is {clean_rows}, expected 676.")
+        print(f"[WARNING] Row count is {clean_rows}, expected 676.")
 
-    # 4. Verifies 52 unique lots and 13 unique business types
     unique_lots = df_clean['id'].nunique()
     unique_business_types = df_clean['business_type'].nunique()
     
     if unique_lots == 52:
-        print("✅ Exactly 52 unique lots found.")
+        print("[OK] Exactly 52 unique lots found.")
     else:
-        print(f"❌ Warning: Found {unique_lots} unique lots, expected 52.")
+        print(f"[WARNING] Found {unique_lots} unique lots, expected 52.")
         
     if unique_business_types == 13:
-        print("✅ Exactly 13 unique business types found.")
+        print("[OK] Exactly 13 unique business types found.")
     else:
-        print(f"❌ Warning: Found {unique_business_types} unique business types, expected 13.")
+        print(f"[WARNING] Found {unique_business_types} unique business types, expected 13.")
 
-    # 5. Verifies no nulls in final_probability
     null_probs = df_clean['final_probability'].isnull().sum()
     if null_probs == 0:
-        print("✅ No nulls found in final_probability.")
+        print("[OK] No nulls found in final_probability.")
     else:
-        print(f"❌ Warning: Found {null_probs} nulls in final_probability.")
+        print(f"[WARNING] Found {null_probs} nulls in final_probability.")
 
     print("---------------------\n")
 
-    # Sort by final_probability descending to get top 10
     df_clean = df_clean.sort_values('final_probability', ascending=False)
 
-    # 6. Saves clean file back to data/processed/final_scores.csv
     print(f"Saving clean CSV to {csv_file}...")
     df_clean.to_csv(csv_file, index=False)
 
-    # 7. Also saves to data/processed/final_scores.json as a clean array of objects with indent=2
     print(f"Saving clean JSON to {json_file}...")
     records = df_clean.to_dict(orient='records')
     with open(json_file, 'w') as f:
         json.dump(records, f, indent=2)
 
-    # 9. Prints top 10 rows by final_probability showing: id, business_type, final_probability, reason
     print("\nTOP 10 OPPORTUNITIES:")
     print(f"{'ID':>15} | {'BUSINESS TYPE':>20} | {'PROB':>5} | REASON")
     print("-" * 80)

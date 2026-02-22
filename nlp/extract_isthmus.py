@@ -12,7 +12,6 @@ import csv
 import re
 from pathlib import Path
 
-# Paths
 DATA_DIR = Path(__file__).parent.parent
 INPUT_FILE = DATA_DIR / "isthmus_articles.jsonl"
 OUTPUT_DIR = DATA_DIR / "data" / "processed"
@@ -24,10 +23,8 @@ def extract_first_sentences(text, n=3):
     if not text:
         return ""
     
-    # Split on sentence endings (. ! ?) followed by space or end
     sentences = re.split(r'(?<=[.!?])\s+', text.strip())
     
-    # Take first n sentences
     first_n = sentences[:n]
     
     return " ".join(first_n).strip()
@@ -61,14 +58,12 @@ def main():
             
             obj = json.loads(line)
             
-            # Find main text column (could be "text", "body", "content")
             text = obj.get("text", obj.get("body", obj.get("content", "")))
             
             if not is_valid_text(text):
                 skipped += 1
                 continue
             
-            # Extract first 3 sentences for RoBERTa token limit
             text_trimmed = extract_first_sentences(text, n=3)
             
             if not is_valid_text(text_trimmed):
@@ -81,7 +76,6 @@ def main():
                 "location_tag": "general madison"
             })
     
-    # Save to CSV
     print(f"Saving: {OUTPUT_FILE}")
     
     with open(OUTPUT_FILE, "w", encoding="utf-8", newline="") as f:
@@ -89,10 +83,10 @@ def main():
         writer.writeheader()
         writer.writerows(rows)
     
-    print(f"\n✅ Total rows saved: {len(rows)}")
+    print(f"\n[OK] Total rows saved: {len(rows)}")
     print(f"   Skipped (invalid): {skipped}")
     
-    print(f"\n📋 Sample rows (first 3):")
+    print(f"\n[DATA] Sample rows (first 3):")
     for i, row in enumerate(rows[:3]):
         text_preview = row["text"][:80] + "..." if len(row["text"]) > 80 else row["text"]
         print(f"   {i+1}. {text_preview}")

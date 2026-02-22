@@ -4,7 +4,6 @@ import json
 from shapely.geometry import Point, box
 import os
 
-# Define business categories and keywords
 CATEGORIES = {
     "coffee shop": ["coffee", "cafe", "espresso", "latte", "cappuccino"],
     "restaurant": ["restaurant", "food", "eat", "dining", "lunch", "dinner", "brunch"],
@@ -38,38 +37,29 @@ def categorize_business(row):
 
 def calculate_recommendations():
     print("Loading datasets...")
-    # Paths
     LOTS_PATH = 'data/vacant_lots_madison.geojson'
     BIZ_PATH = 'data/all_businesses_madison.geojson'
     TAX_PATH = 'data/Tax_Parcels.geojson'
     CENSUS_PATH = 'data/census_data_2024.geojson'
-    
-    # Load primary data
     vacant_lots = gpd.read_file(LOTS_PATH)
     all_businesses = gpd.read_file(BIZ_PATH)
     census_tracts = gpd.read_file(CENSUS_PATH)
 
-    # Optimization: Use a bounding box mask for the huge Tax Parcels file
     print("Preparing spatial mask for tax parcels...")
-    # We buffer the bounding box of the vacant lots to capture the immediate neighborhood
-    # Bounding box is in degrees (EPSG:4326)
     bbox = vacant_lots.total_bounds
     mask_geom = box(bbox[0]-0.01, bbox[1]-0.01, bbox[2]+0.01, bbox[3]+0.01)
     
     print(f"Loading Tax Parcels (masked by {mask_geom.bounds})...")
     try:
-        # Load only necessary columns and use the spatial mask to save memory/time
         tax_parcels = gpd.read_file(TAX_PATH, mask=mask_geom)
         print(f"Loaded {len(tax_parcels)} relevant parcels.")
     except Exception as e:
         print(f"Masked load failed or unsupported, attempting full load (Memory-heavy): {e}")
         tax_parcels = gpd.read_file(TAX_PATH)
 
-    # Project to metric CRS for accurate distance calculations (Madison UTM 16N)
     target_crs = "EPSG:32616"
     print(f"Projecting layers to {target_crs}...")
     
-    # Harmonize CRS before projection
     for name, gdf in [("Lots", vacant_lots), ("Business", all_businesses), ("Parcels", tax_parcels), ("Census", census_tracts)]:
         if gdf.crs is None:
             print(f"Warning: {name} missing CRS, assuming EPSG:4326")

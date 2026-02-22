@@ -15,13 +15,11 @@ import csv
 from pathlib import Path
 from pytrends.request import TrendReq
 
-GEO       = "US-WI-669"   # Madison, WI DMA
+GEO       = "US-WI-669"
 TIMEFRAME = "today 5-y"
 
 OUTPUT_CSV     = Path("data/raw/google_trends_results.csv")
 OUTPUT_SUMMARY = Path("data/raw/google_trends_summary.json")
-
-# ── 14 Categories with their search keywords ──────────────────────────────────
 
 CATEGORIES = {
     "coffee shop":        ["coffee", "cafe", "espresso", "latte", "cappuccino"],
@@ -37,11 +35,9 @@ CATEGORIES = {
     "daycare":            ["daycare", "childcare", "nursery", "preschool", "kids"],
     "hardware store":     ["hardware", "tools", "Home Depot", "lumber", "plumbing"],
     "urgent care":        ["urgent care", "clinic", "walk-in", "emergency", "doctor"],
-    "general business":   [],   # fallback — gets score of 0
+    "general business":   [],
 }
 
-
-# ── Helpers ───────────────────────────────────────────────────────────────────
 
 def batch(lst, size=5):
     for i in range(0, len(lst), size):

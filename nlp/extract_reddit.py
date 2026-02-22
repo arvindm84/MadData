@@ -9,7 +9,6 @@ import json
 import csv
 from pathlib import Path
 
-# Paths
 DATA_DIR = Path(__file__).parent.parent
 INPUT_FILE = DATA_DIR / "reddit_filtered_final.jsonl"
 OUTPUT_DIR = DATA_DIR / "data" / "processed"
@@ -51,7 +50,6 @@ def main():
                 skipped += 1
                 continue
             
-            # Note: the file uses "location" not "location_tag"
             location_tag = obj.get("location", obj.get("location_tag", ""))
             
             rows.append({
@@ -60,7 +58,6 @@ def main():
                 "location_tag": location_tag
             })
     
-    # Save to CSV
     print(f"Saving: {OUTPUT_FILE}")
     
     with open(OUTPUT_FILE, "w", encoding="utf-8", newline="") as f:
@@ -68,10 +65,10 @@ def main():
         writer.writeheader()
         writer.writerows(rows)
     
-    print(f"\n✅ Total rows saved: {len(rows)}")
+    print(f"\n[OK] Total rows saved: {len(rows)}")
     print(f"   Skipped (invalid): {skipped}")
     
-    print(f"\n📋 Sample rows (first 3):")
+    print(f"\n[DATA] Sample rows (first 3):")
     for i, row in enumerate(rows[:3]):
         text_preview = row["text"][:60] + "..." if len(row["text"]) > 60 else row["text"]
         print(f"   {i+1}. [{row['location_tag']}] {text_preview}")

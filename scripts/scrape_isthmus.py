@@ -11,13 +11,8 @@ import time
 import re
 from datetime import datetime
 
-# =============================================================================
-# CONFIG
-# =============================================================================
-
 BASE_URL = "https://isthmus.com"
 
-# Sections to scrape
 SECTIONS = [
     "/food-drink",
     "/food-drink/restaurant-news",
@@ -29,7 +24,6 @@ SECTIONS = [
     "/news",
 ]
 
-# Keywords to filter for business-relevant articles
 BUSINESS_KEYWORDS = [
     "opening", "open", "opened", "opens",
     "closing", "closed", "closes", "shutdown",
@@ -43,9 +37,6 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 }
 
-# =============================================================================
-# SCRAPER FUNCTIONS
-# =============================================================================
 
 def get_soup(url):
     """Fetch and parse a URL."""
@@ -60,7 +51,6 @@ def get_soup(url):
 def scrape_section(section_url, max_pages=5):
     """Scrape articles from a section."""
     articles = []
-    
     for page in range(1, max_pages + 1):
         url = f"{BASE_URL}{section_url}" if page == 1 else f"{BASE_URL}{section_url}/page/{page}"
         
@@ -68,7 +58,6 @@ def scrape_section(section_url, max_pages=5):
         if not soup:
             break
         
-        # Find article links (adjust selectors based on actual site structure)
         article_links = soup.select("article a, .post-title a, h2 a, h3 a")
         
         for link in article_links:
@@ -76,11 +65,9 @@ def scrape_section(section_url, max_pages=5):
             title = link.get_text(strip=True)
             
             if href and title and len(title) > 10:
-                # Make absolute URL
                 if href.startswith("/"):
                     href = BASE_URL + href
                 
-                # Check if business-relevant
                 title_lower = title.lower()
                 if any(kw in title_lower for kw in BUSINESS_KEYWORDS):
                     articles.append({
@@ -107,28 +94,22 @@ def scrape_article(url):
         "author": "",
     }
     
-    # Title
     title_tag = soup.select_one("h1, .entry-title, .post-title")
     if title_tag:
         data["title"] = title_tag.get_text(strip=True)
     
-    # Date
     date_tag = soup.select_one("time, .date, .post-date, .entry-date")
     if date_tag:
         data["date"] = date_tag.get_text(strip=True)
-        # Try to get datetime attribute
         if date_tag.get("datetime"):
             data["date"] = date_tag.get("datetime")[:10]
     
-    # Author
     author_tag = soup.select_one(".author, .byline, .entry-author")
     if author_tag:
         data["author"] = author_tag.get_text(strip=True)
     
-    # Main content
     content_tag = soup.select_one("article, .entry-content, .post-content, .article-body")
     if content_tag:
-        # Remove scripts, styles, etc.
         for tag in content_tag.select("script, style, nav, footer, .ad, .advertisement"):
             tag.decompose()
         
@@ -160,16 +141,10 @@ def extract_location(text):
     
     return "general madison"
 
-# =============================================================================
-# MAIN
-# =============================================================================
-
 def run_scraper():
-    # Suppress output - save to log file instead
     import sys
     log_file = open("isthmus_scrape.log", "w")
     
-    # Step 1: Get article links from sections
     all_article_links = []
     
     for section in SECTIONS:
@@ -179,7 +154,6 @@ def run_scraper():
         log_file.write(f"  Found {len(articles)} relevant articles\n")
         time.sleep(1)
     
-    # Deduplicate by URL
     seen_urls = set()
     unique_articles = []
     for article in all_article_links:
@@ -221,9 +195,9 @@ def run_scraper():
         log_file.write(f"By section:\n{df['section'].value_counts().to_string()}\n")
         
         # Print minimal summary to terminal
-        print(f"✅ Scraped {len(df)} articles → isthmus_articles.csv")
+        print(f"[OK] Scraped {len(df)} articles -> isthmus_articles.csv")
     else:
-        print("❌ No articles scraped")
+        print("[ERROR] No articles scraped")
     
     log_file.close()
 

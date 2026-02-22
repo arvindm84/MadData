@@ -10,7 +10,6 @@ Output:
 import pandas as pd
 from pathlib import Path
 
-# Paths
 DATA_DIR = Path(__file__).parent.parent
 INPUT_FILE = DATA_DIR / "data" / "processed" / "sentiment_scores_raw.csv"
 OUTPUT_AREA_BIZ = DATA_DIR / "data" / "processed" / "sentiment_by_area_business.csv"
@@ -41,17 +40,9 @@ def calculate_aggregations(df, group_cols):
 
 
 def main():
-    # Load data
-    print(f"📂 Loading: {INPUT_FILE}")
+    print(f"[LOADING] Loading: {INPUT_FILE}")
     df = pd.read_csv(INPUT_FILE)
     print(f"   Loaded {len(df)} rows")
-    
-    # =========================================================================
-    # AGGREGATION 1: by location_tag AND business_type
-    # =========================================================================
-    print(f"\n{'='*60}")
-    print("AGGREGATION 1: by location_tag + business_type")
-    print(f"{'='*60}")
     
     agg_area_biz = calculate_aggregations(df, ["location_tag", "business_type"])
     agg_area_biz = agg_area_biz.sort_values("overall_sentiment", ascending=False)
@@ -60,13 +51,6 @@ def main():
     agg_area_biz.to_csv(OUTPUT_AREA_BIZ, index=False)
     print(f"   {len(agg_area_biz)} groups")
     
-    # =========================================================================
-    # AGGREGATION 2: by location_tag only
-    # =========================================================================
-    print(f"\n{'='*60}")
-    print("AGGREGATION 2: by location_tag only")
-    print(f"{'='*60}")
-    
     agg_area = calculate_aggregations(df, ["location_tag"])
     agg_area = agg_area.sort_values("overall_sentiment", ascending=False)
     
@@ -74,26 +58,21 @@ def main():
     agg_area.to_csv(OUTPUT_AREA, index=False)
     print(f"   {len(agg_area)} locations")
     
-    # =========================================================================
-    # PRINT RESULTS
-    # =========================================================================
     print(f"\n{'='*60}")
-    print("📊 SENTIMENT BY AREA + BUSINESS (sorted by overall_sentiment)")
+    print("SENTIMENT BY AREA + BUSINESS (sorted by overall_sentiment)")
     print(f"{'='*60}")
     
     pd.set_option('display.max_columns', None)
     pd.set_option('display.width', None)
     pd.set_option('display.max_rows', 50)
     
-    # Show top 20 by overall sentiment
     print("\nTop 20 location+business combos by overall_sentiment:")
     print(agg_area_biz.head(20).to_string(index=False))
     
     print(f"\n{'='*60}")
-    print("🏆 BEST BUSINESS TYPE PER LOCATION (highest positive_ratio)")
+    print("BEST BUSINESS TYPE PER LOCATION (highest positive_ratio)")
     print(f"{'='*60}")
     
-    # For each location, find business_type with highest positive_ratio
     best_per_location = agg_area_biz.loc[
         agg_area_biz.groupby("location_tag")["positive_ratio"].idxmax()
     ][["location_tag", "business_type", "positive_ratio", "total_entries"]]
@@ -102,16 +81,16 @@ def main():
     
     print()
     for _, row in best_per_location.iterrows():
-        flag = "⚠️" if row["total_entries"] < 10 else "✅"
-        print(f"{flag} {row['location_tag']:20} → {row['business_type']:20} "
+        flag = "[LOW]" if row["total_entries"] < 10 else "[OK] "
+        print(f"{flag} {row['location_tag']:20} -> {row['business_type']:20} "
               f"(positive: {row['positive_ratio']:.1%}, n={int(row['total_entries'])})")
     
     print(f"\n{'='*60}")
-    print("📍 SENTIMENT BY AREA ONLY")
+    print("SENTIMENT BY AREA ONLY")
     print(f"{'='*60}")
     print(agg_area.to_string(index=False))
     
-    print(f"\n✅ AGGREGATION COMPLETE!")
+    print(f"\n[OK] AGGREGATION COMPLETE!")
     print(f"   • {OUTPUT_AREA_BIZ.name}: {len(agg_area_biz)} groups")
     print(f"   • {OUTPUT_AREA.name}: {len(agg_area)} locations")
 

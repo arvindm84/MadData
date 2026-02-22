@@ -15,11 +15,9 @@ import pandas as pd
 import json
 from pathlib import Path
 
-# Paths
 DATA_DIR = Path(__file__).parent.parent
 PROCESSED_DIR = DATA_DIR / "data" / "processed"
 
-# Madison WI neighborhood coordinates
 COORDINATES = {
     "state street":     {"lat": 43.0731, "lon": -89.4012},
     "willy street":     {"lat": 43.0669, "lon": -89.3704},
@@ -32,7 +30,7 @@ COORDINATES = {
     "west side":        {"lat": 43.0650, "lon": -89.4800},
     "east side":        {"lat": 43.0750, "lon": -89.3300},
     "general madison":  {"lat": 43.0731, "lon": -89.4012},
-    # Additional neighborhoods
+    
     "campus":           {"lat": 43.0766, "lon": -89.4125},
     "middleton":        {"lat": 43.0972, "lon": -89.5043},
     "fitchburg":        {"lat": 42.9609, "lon": -89.4237},
@@ -75,14 +73,12 @@ def get_coordinates(location_tag):
 
 def process_file(input_path, output_csv, output_json):
     """Process a single CSV file and add coordinates."""
-    print(f"\n📂 Loading: {input_path.name}")
+    print(f"\n[LOADING] Loading: {input_path.name}")
     df = pd.read_csv(input_path)
     print(f"   {len(df)} rows")
     
-    # Track unmatched locations
     unmatched = set()
     
-    # Add coordinates
     lats = []
     lons = []
     
@@ -97,11 +93,9 @@ def process_file(input_path, output_csv, output_json):
     df["lat"] = lats
     df["lon"] = lons
     
-    # Save CSV
     print(f"💾 Saving: {output_csv.name}")
     df.to_csv(output_csv, index=False)
     
-    # Save JSON
     print(f"💾 Saving: {output_json.name}")
     records = df.to_dict(orient="records")
     with open(output_json, "w", encoding="utf-8") as f:
@@ -117,7 +111,6 @@ def main():
     
     all_unmatched = set()
     
-    # Process sentiment_by_area.csv
     unmatched = process_file(
         PROCESSED_DIR / "sentiment_by_area.csv",
         PROCESSED_DIR / "sentiment_by_area_with_coords.csv",
@@ -125,7 +118,6 @@ def main():
     )
     all_unmatched.update(unmatched)
     
-    # Process sentiment_by_area_business.csv
     unmatched = process_file(
         PROCESSED_DIR / "sentiment_by_area_business.csv",
         PROCESSED_DIR / "sentiment_by_area_business_with_coords.csv",
@@ -133,9 +125,8 @@ def main():
     )
     all_unmatched.update(unmatched)
     
-    # Report unmatched
     print(f"\n{'='*60}")
-    print("⚠️  UNMATCHED LOCATIONS (used default coordinates)")
+    print("[WARNING] UNMATCHED LOCATIONS (used default coordinates)")
     print("="*60)
     
     if all_unmatched:
@@ -145,7 +136,7 @@ def main():
     else:
         print("   None! All locations matched.")
     
-    print(f"\n✅ COMPLETE!")
+    print(f"\n[OK] COMPLETE!")
     print(f"   Created 4 output files with lat/lon coordinates")
 
 

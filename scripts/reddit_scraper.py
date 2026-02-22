@@ -4,22 +4,15 @@ import time
 from datetime import datetime, timedelta
 import re 
 
-# ─────────────────────────────────────────
-# CONFIG
-# ─────────────────────────────────────────
-
-# ALL Madison-related subreddits
 SUBREDDITS = [
     # Primary Madison subreddits
     "madisonwi",
     "UWMadison",
     
-    # Campus & Student Life
     "UWMadisonHousing",
     "UWMadisonJobs",
     "UWMadisonTickets",
     
-    # Madison Area suburbs/neighborhoods
     "Middleton_WI",
     "SunPrairie", 
     "FitchburgWI",
@@ -30,12 +23,10 @@ SUBREDDITS = [
     "WaunakeeWI",
     "StoughtonWI",
     
-    # Wisconsin general (will filter for Madison content)
     "wisconsin",
     "WisconsinBadgers",
     "WisconsinSports",
     
-    # Niche Madison communities
     "MadisonFood",
     "MadtownBeer",
     "MadisonBikeMN",
@@ -47,11 +38,9 @@ SUBREDDITS = [
     "MadisonEvents",
 ]
 
-# Regex pattern to match Madison-related content
 MADISON_PATTERN = re.compile(r'(?i)(madisonwi|madison\s*wi|madison,?\s*wisconsin|madison\s+area|dane\s+county|uw[\s-]*madison|isthmus|state\s+street|capitol\s+square)')
 
 KEYWORDS = [
-    # Demand signals
     "wish there was",
     "need a",
     "why is there no",
@@ -61,7 +50,6 @@ KEYWORDS = [
     "why isn't there",
     "nowhere to",
     "no place to",
-    # Neighborhoods
     "State Street",
     "Willy Street",
     "East Washington",
@@ -71,7 +59,6 @@ KEYWORDS = [
     "capitol square",
     "west side",
     "east side",
-    # Business types
     "coffee",
     "pharmacy",
     "grocery",
@@ -98,10 +85,6 @@ NEIGHBORHOODS = [
 
 BASE_URL = "https://api.pullpush.io/reddit"
 
-# ─────────────────────────────────────────
-# HELPERS
-# ─────────────────────────────────────────
-
 def get_location_tag(text):
     text_lower = text.lower()
     for neighborhood in NEIGHBORHOODS:
@@ -118,10 +101,6 @@ def unix_to_date(unix_ts):
 def two_years_ago_unix():
     dt = datetime.utcnow() - timedelta(days=730)
     return int(dt.timestamp())
-
-# ─────────────────────────────────────────
-# SCRAPE POSTS
-# ─────────────────────────────────────────
 
 def fetch_posts(subreddit, keyword, limit=100):
     posts = []
@@ -174,10 +153,6 @@ def fetch_posts(subreddit, keyword, limit=100):
         print(f"  [!] Error for '{keyword}' in r/{subreddit}: {e}")
 
     return posts
-
-# ─────────────────────────────────────────
-# SCRAPE COMMENTS
-# ─────────────────────────────────────────
 
 def fetch_comments(subreddit, keyword, limit=100):
     comments = []

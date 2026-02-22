@@ -53,8 +53,6 @@ BUSINESS_CATEGORIES = {
     "general business":  [],
 }
 
-# ── Madison neighborhoods with lat/lon ────────────────────────────────────────
-
 LOCATIONS = {
     "monroe street":      (43.0505, -89.4076),
     "willy street":       (43.0886, -89.3762),
@@ -87,9 +85,6 @@ LOCATIONS = {
     "stoughton road":     (43.0500, -89.3200),
     "badger road":        (43.0450, -89.4100),
 }
-
-# ── Phrases that signal public comment (resident speaking) ────────────────────
-# These sentences get a 1.5x boost since residents > staff
 
 PUBLIC_COMMENT_SIGNALS = [
     r"\bmy name is\b",
@@ -271,12 +266,12 @@ def analyze_transcripts():
     print("  " + "-"*72)
 
     for r in results[:20]:
-        flag = "⚠️ " if r["low_confidence"] else "  "
+        flag = "[LOW]" if r["low_confidence"] else "[OK]  "
         print(f"  {r['location_tag']:<22} {r['business_type']:<20} "
               f"{r['overall_sentiment']:>10.4f}  {r['total_entries']:>8}  {flag}")
 
     low_conf = sum(1 for r in results if r["low_confidence"])
-    print(f"\n  ⚠️  {low_conf}/{len(results)} results flagged low confidence (< 5 sentences)")
+    print(f"\n  [WARNING] {low_conf}/{len(results)} results flagged low confidence (< 5 sentences)")
 
     return results
 

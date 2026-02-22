@@ -9,11 +9,9 @@ import json
 from pathlib import Path
 import random
 
-# Project root
 PROJECT_ROOT = Path(__file__).parent.parent
 PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
 
-# Files to check
 FILES_TO_CHECK = [
     "data/processed/reddit_clean.csv",
     "data/processed/isthmus_clean.csv",
@@ -29,7 +27,6 @@ FILES_TO_CHECK = [
     "data/business_scores.csv",
 ]
 
-# Expected business types
 EXPECTED_BUSINESS_TYPES = [
     "coffee shop", "restaurant", "pharmacy", "grocery store",
     "bar", "gym", "late night food", "bakery",
@@ -51,12 +48,12 @@ def check(name, condition):
     
     if condition:
         checks_passed += 1
-        print(f"   ✅ PASSED: {name}")
+        print(f"   [PASS] {name}")
         return True
     else:
         checks_failed += 1
         failed_checks.append(name)
-        print(f"   ❌ FAILED: {name}")
+        print(f"   [FAIL] {name}")
         return False
 
 
@@ -89,10 +86,10 @@ def section_1_check_files_exist():
     for filepath in FILES_TO_CHECK:
         path = PROJECT_ROOT / filepath
         if path.exists():
-            print(f"   ✅ FOUND: {filepath}")
+            print(f"   [OK] {filepath}")
             existing_files.append(filepath)
         else:
-            print(f"   ❌ MISSING: {filepath}")
+            print(f"   [MISSING] {filepath}")
     
     print(f"\n   Summary: {len(existing_files)}/{len(FILES_TO_CHECK)} files found")
     return existing_files
@@ -105,12 +102,12 @@ def section_2_check_row_counts(existing_files):
     print("="*70)
     
     for filepath in existing_files:
-        print(f"\n   📄 {filepath}")
+        print(f"\n   [FILE] {filepath}")
         
         data = load_file(filepath)
         
         if data is None:
-            print(f"      ⚠️  Could not load file")
+            print(f"      [WARNING] Could not load file")
             continue
         
         if isinstance(data, pd.DataFrame):
@@ -123,7 +120,7 @@ def section_2_check_row_counts(existing_files):
             print(f"      Column names: {col_names}")
             
             if rows == 0:
-                print(f"      ⚠️  EMPTY FILE WARNING")
+                print(f"      [WARNING] EMPTY FILE")
         elif isinstance(data, dict):
             print(f"      Type: dict with {len(data)} keys")
             print(f"      Keys: {list(data.keys())}")
@@ -139,42 +136,38 @@ def section_3_check_sentiment_scores():
     df = load_file(filepath)
     
     if df is None:
-        print(f"   ⚠️  File not found: {filepath}")
+        print(f"   [WARNING] File not found: {filepath}")
         return
-    
+
     print(f"\n   Loaded {len(df)} rows")
     
-    # Check no null values in score columns
     score_cols = ["positive_score", "neutral_score", "negative_score"]
     for col in score_cols:
         if col in df.columns:
             null_count = df[col].isna().sum()
             check(f"No nulls in {col}", null_count == 0)
     
-    # Check scores sum to 1.0 (INFORMATIONAL - known issue with model output)
     if all(col in df.columns for col in score_cols):
         df["score_sum"] = df["positive_score"] + df["neutral_score"] + df["negative_score"]
         valid_sums = ((df["score_sum"] - 1.0).abs() <= 0.01).all()
         if not valid_sums:
-            print(f"   ⚠️  INFO: Scores don't sum to 1.0 (model only saved winning score)")
+            print(f"   [INFO] Scores don't sum to 1.0 (model only saved winning score)")
             print(f"         This is OK - positive_ratio/negative_ratio use label counts, not scores")
     
-    # Check sentiment_label values
     if "sentiment_label" in df.columns:
         valid_labels = {"positive", "neutral", "negative"}
         actual_labels = set(df["sentiment_label"].unique())
         check("sentiment_label only has valid values", actual_labels.issubset(valid_labels))
         
-        print(f"\n   📊 sentiment_label breakdown:")
+        print(f"\n   [SENTIMENT] sentiment_label breakdown:")
         print(df["sentiment_label"].value_counts().to_string(header=False))
     
-    # Check business_type values
     if "business_type" in df.columns:
         actual_types = set(df["business_type"].unique())
         expected_set = set(EXPECTED_BUSINESS_TYPES)
         check("business_type only has expected categories", actual_types.issubset(expected_set))
         
-        print(f"\n   📊 business_type breakdown:")
+        print(f"\n   [BREAKDOWN] business_type breakdown:")
         print(df["business_type"].value_counts().to_string(header=False))
 
 
@@ -188,9 +181,9 @@ def section_4_check_coordinates():
     df = load_file(filepath)
     
     if df is None:
-        print(f"   ⚠️  File not found: {filepath}")
+        print(f"   [WARNING] File not found: {filepath}")
         return
-    
+
     print(f"\n   Loaded {len(df)} rows")
     
     # Check no null lat/lon
@@ -208,7 +201,7 @@ def section_4_check_coordinates():
     
     # Print unique locations with coordinates
     if "location_tag" in df.columns:
-        print(f"\n   📍 Unique locations and coordinates:")
+        print(f"\n   [COORDINATES] Unique locations and coordinates:")
         unique_locs = df[["location_tag", "lat", "lon"]].drop_duplicates()
         for _, row in unique_locs.iterrows():
             print(f"      {row['location_tag']:20} → ({row['lat']:.4f}, {row['lon']:.4f})")
@@ -224,9 +217,9 @@ def section_5_check_business_scores():
     df = load_file(filepath)
     
     if df is None:
-        print(f"   ⚠️  File not found: {filepath}")
+        print(f"   [WARNING] File not found: {filepath}")
         return
-    
+
     print(f"\n   Loaded {len(df)} rows")
     
     # Check no null lat/lon
@@ -234,22 +227,18 @@ def section_5_check_business_scores():
         check("No null lat values", df["lat"].isna().sum() == 0)
         check("No null lon values", df["lon"].isna().sum() == 0)
         
-        # Check lat range (Madison metro area)
         lat_valid = (df["lat"] >= 42.9) & (df["lat"] <= 43.3)
         check("All lat values in Madison range (42.9-43.3)", lat_valid.all())
         
-        # Check lon range (Madison metro area)
         lon_valid = (df["lon"] >= -89.6) & (df["lon"] <= -89.1)
         check("All lon values in Madison range (-89.6 to -89.1)", lon_valid.all())
     
-    # Check saturation_score range
     if "saturation_score" in df.columns:
         sat_valid = (df["saturation_score"] >= 0) & (df["saturation_score"] <= 1)
         check("saturation_score values between 0 and 1", sat_valid.all())
     
-    # Print row count per business_type
     if "business_type" in df.columns:
-        print(f"\n   📊 Rows per business_type:")
+        print(f"\n   [BREAKDOWN] Rows per business_type:")
         print(df["business_type"].value_counts().to_string(header=False))
 
 
@@ -259,8 +248,7 @@ def section_6_sample_data():
     print("SECTION 6: SAMPLE DATA SPOT CHECK")
     print("="*70)
     
-    # Sample from sentiment_scores_raw.csv
-    print("\n   📋 sentiment_scores_raw.csv (3 random rows):")
+    print("\n   [DATA] sentiment_scores_raw.csv (3 random rows):")
     df = load_file("data/processed/sentiment_scores_raw.csv")
     if df is not None and len(df) > 0:
         cols = ["text", "sentiment_label", "business_type"]
@@ -272,8 +260,7 @@ def section_6_sample_data():
             print(f"      {text_preview}")
             print()
     
-    # Sample from sentiment_by_area_business_with_coords.csv
-    print("\n   📋 sentiment_by_area_business_with_coords.csv (3 random rows):")
+    print("\n   [DATA] sentiment_by_area_business_with_coords.csv (3 random rows):")
     df = load_file("data/processed/sentiment_by_area_business_with_coords.csv")
     if df is not None and len(df) > 0:
         cols = ["location_tag", "business_type", "positive_ratio", "overall_sentiment", "lat", "lon"]
@@ -282,7 +269,7 @@ def section_6_sample_data():
         print(sample.to_string(index=False))
     
     # Sample from business_scores.csv
-    print("\n   📋 business_scores.csv (3 random rows):")
+    print("\n   [DATA] business_scores.csv (3 random rows):")
     df = load_file("business_scores.csv")
     if df is not None and len(df) > 0:
         cols = ["id", "lat", "lon", "saturation_score"]
@@ -307,21 +294,21 @@ def section_7_final_summary():
     print(f"   Total FAILED:        {checks_failed}")
     
     if failed_checks:
-        print(f"\n   ❌ Failed checks:")
+        print(f"\n   [FAILURES] Failed checks:")
         for name in failed_checks:
             print(f"      • {name}")
     
     print("\n" + "="*70)
     if checks_failed == 0:
-        print("✅ PIPELINE READY — safe to run probability score")
+        print("[OK] PIPELINE READY - safe to run probability score")
     else:
-        print("❌ PIPELINE NOT READY — fix failed checks first")
+        print("[ERROR] PIPELINE NOT READY - fix failed checks first")
     print("="*70)
 
 
 def main():
     print("="*70)
-    print("🔍 MADISON WI BUSINESS VIABILITY PIPELINE CHECK")
+    print("MADISON WI BUSINESS VIABILITY PIPELINE CHECK")
     print("="*70)
     
     # Run all sections

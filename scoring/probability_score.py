@@ -22,7 +22,6 @@ import math
 from pathlib import Path
 from tqdm import tqdm
 
-# Paths
 PROJECT_ROOT = Path(__file__).parent.parent
 DATA_DIR = PROJECT_ROOT / "data" / "processed"
 
@@ -36,12 +35,10 @@ OUTPUT_JSON = DATA_DIR / "final_scores.json"
 
 
 def haversine_distance(lat1, lon1, lat2, lon2):
-    """
-    Calculate the great-circle distance between two points 
-    on Earth using the Haversine formula.
+    """Calculate the great-circle distance between two points on Earth using the Haversine formula.
     Returns distance in kilometers.
     """
-    R = 6371  # Earth's radius in km
+    R = 6371
     
     lat1_rad = math.radians(lat1)
     lat2_rad = math.radians(lat2)
@@ -62,28 +59,23 @@ def find_closest_sentiment(lat, lon, business_type, sentiment_df, max_distance_k
     Uses positive_ratio (0-1) as sentiment indicator (more reliable than overall_sentiment).
     Returns (location_tag, positive_ratio, distance_km)
     """
-    # Filter to matching business type
     matches = sentiment_df[sentiment_df["business_type"] == business_type]
     
     if len(matches) == 0:
-        # No sentiment data for this business type - return neutral
         return "no_data", 0.5, 999.0
     
     best_match = None
     best_distance = float("inf")
-    best_sentiment = 0.5  # Neutral default
+    best_sentiment = 0.5
     
     for _, row in matches.iterrows():
         dist = haversine_distance(lat, lon, row["lat"], row["lon"])
         if dist < best_distance:
             best_distance = dist
             best_match = row["location_tag"]
-            # Use positive_ratio (0-1) which is reliable
             best_sentiment = row.get("positive_ratio", 0.5)
     
-    # If too far, discount the sentiment
     if best_distance > max_distance_km:
-        # Blend toward neutral (0.5) as distance increases
         blend_factor = min(1.0, (best_distance - max_distance_km) / 20.0)
         best_sentiment = best_sentiment * (1 - blend_factor) + 0.5 * blend_factor
     
@@ -95,17 +87,12 @@ def main():
     print("FINAL PROBABILITY SCORING")
     print("="*60)
     
-    # =========================================================================
-    # LOAD DATA
-    # =========================================================================
-    print("\n📂 Loading data...")
+    print("\n[LOADING] Loading data...")
     
-    # Business scores (OSM locations)
     print(f"   Loading: {BUSINESS_SCORES_FILE.name}")
     business_df = pd.read_csv(BUSINESS_SCORES_FILE)
     print(f"      {len(business_df)} OSM locations")
     
-    # Sentiment by area + business (Reddit/Isthmus)
     print(f"   Loading: {SENTIMENT_FILE.name}")
     with open(SENTIMENT_FILE, "r") as f:
         sentiment_data = json.load(f)
@@ -121,28 +108,22 @@ def main():
         transcript_df = pd.DataFrame(transcript_data)
         print(f"      {len(transcript_df)} location×business groups from transcripts")
     else:
-        print(f"   ⚠️ {TRANSCRIPT_SENTIMENT_FILE.name} not found")
+        print(f"   [WARNING] {TRANSCRIPT_SENTIMENT_FILE.name} not found")
     
-    # Trends demand scores
     print(f"   Loading: {TRENDS_FILE.name}")
     with open(TRENDS_FILE, "r") as f:
         trends_list = json.load(f)
     print(f"      {len(trends_list)} business types")
     
-    # Convert trends list to dict for lookup
     trends_data = {item["business_type"]: item["demand_score"] for item in trends_list}
     
-    # Get business types from trends (excluding "general business" with 0 score)
     business_types = [bt for bt, score in trends_data.items() if score > 0]
     print(f"   Using {len(business_types)} business types for scoring")
     
-    # =========================================================================
-    # LOAD TAX & CENSUS DATA FROM GEOJSON
-    # =========================================================================
     tax_lookup = {}
     demo_lookup = {}
     
-    print("\n🗺️ Loading Tax & Demographic data from vacant_lots_scored.geojson...")
+    print("\n[LOADING] Loading Tax & Demographic data from vacant_lots_scored.geojson...")
     GEOJSON_FILE = PROJECT_ROOT / "data" / "vacant_lots_scored.geojson"
     JS_FILE = PROJECT_ROOT / "data" / "vacant_lots_scored.js"
     
@@ -165,7 +146,7 @@ def main():
         avg_income = sum(demo_lookup.values()) / len(demo_lookup) if demo_lookup else 1
         print(f"   City Average Tax: ${avg_tax:,.2f} | Avg Income: ${avg_income:,.2f}")
     else:
-        print(f"   ⚠️ Could not load {GEOJSON_FILE.name}")
+        print(f"   [WARNING] Could not load {GEOJSON_FILE.name}")
         avg_tax = 1
         avg_income = 1
 
@@ -175,7 +156,7 @@ def main():
     # Deduplicate before processing:
     business_df = business_df.drop_duplicates(subset=["id", "business_type"]).reset_index(drop=True)
 
-    print(f"\n🔄 Calculating probability scores ({len(business_df)} lot×business combinations)...")
+    print(f"\n[PROCESSING] Calculating probability scores ({len(business_df)} lot×business combinations)...")
     
     results = []
     
@@ -333,7 +314,7 @@ def main():
             
         print(f"   Injected updated scores into {GEOJSON_FILE.name} and {JS_FILE.name}")
     else:
-        print(f"   ⚠️ Could not inject scores: {GEOJSON_FILE.name} not found")
+        print(f"   [WARNING] Could not inject scores: {GEOJSON_FILE.name} not found")
 
     
     # =========================================================================
@@ -358,7 +339,7 @@ def main():
     # PRINT RESULTS
     # =========================================================================
     print("\n" + "="*60)
-    print("📊 TOP 10 HIGHEST PROBABILITY OPPORTUNITIES")
+    print("TOP 10 HIGHEST PROBABILITY OPPORTUNITIES")
     print("="*60)
     
     top_10 = output_df.head(10)[["id", "business_type", "final_probability", "matched_reddit_location"]]
@@ -367,7 +348,7 @@ def main():
     
     # Best by each business type
     print("\n" + "="*60)
-    print("🏆 BEST LOCATION FOR EACH BUSINESS TYPE")
+    print("BEST LOCATION FOR EACH BUSINESS TYPE")
     print("="*60)
     
     for bt in sorted(business_types):
@@ -378,7 +359,7 @@ def main():
     
     # Summary stats
     print("\n" + "="*60)
-    print("📈 SUMMARY STATISTICS")
+    print("SUMMARY STATISTICS")
     print("="*60)
     print(f"Total opportunities scored: {len(output_df)}")
     print(f"Unique locations: {business_df['id'].nunique()}")
@@ -387,7 +368,7 @@ def main():
     print(f"Mean probability: {output_df['final_probability'].mean():.1f}%")
     print(f"Median probability: {output_df['final_probability'].median():.1f}%")
     
-    print(f"\n✅ COMPLETE!")
+    print(f"\n[OK] COMPLETE!")
     print(f"   Output: {OUTPUT_CSV}")
     print(f"   Output: {OUTPUT_JSON}")
 

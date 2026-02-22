@@ -16,20 +16,16 @@ from tqdm import tqdm
 from pathlib import Path
 import time
 
-# GPU Detection
 print("CUDA available:", torch.cuda.is_available())
 print("GPU:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "None")
 
-# Paths
 DATA_DIR = Path(__file__).parent.parent
 INPUT_FILE = DATA_DIR / "data" / "processed" / "all_text_combined.csv"
 OUTPUT_FILE = DATA_DIR / "data" / "processed" / "sentiment_scores_raw.csv"
 
-# Device setup - use GPU if available
 device = 0 if torch.cuda.is_available() else -1
 print(f"Using device: {'GPU (CUDA)' if device == 0 else 'CPU'}")
 
-# Batch size (increased for GPU efficiency)
 BATCH_SIZE = 64
 
 

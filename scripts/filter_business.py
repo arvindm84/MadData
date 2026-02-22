@@ -11,16 +11,10 @@ import pandas as pd
 import json
 import re
 
-# Load filtered data
 df = pd.read_csv("data/raw/reddit_filtered.csv")
-print(f"✅ Loaded {len(df)} entries from data/raw/reddit_filtered.csv")
-
-# =============================================================================
-# BUSINESS DEMAND SIGNAL KEYWORDS
-# =============================================================================
+print(f"[OK] Loaded {len(df)} entries from data/raw/reddit_filtered.csv")
 
 DEMAND_SIGNALS = [
-    # Direct demand expressions
     "wish there was",
     "wish we had",
     "need a",
@@ -43,7 +37,6 @@ DEMAND_SIGNALS = [
     "recommend a",
     "suggestions for",
     
-    # Business lifecycle
     "just opened",
     "new place",
     "closed down",
@@ -53,7 +46,6 @@ DEMAND_SIGNALS = [
     "coming soon",
     "grand opening",
     
-    # Review signals  
     "best place for",
     "worst place",
     "overpriced",
@@ -63,10 +55,6 @@ DEMAND_SIGNALS = [
     "love this place",
     "hate this place",
 ]
-
-# =============================================================================
-# BUSINESS TYPES (what kind of business)
-# =============================================================================
 
 BUSINESS_TYPES = [
     "restaurant", "cafe", "coffee", "coffee shop", "bakery", "bar", "pub",
@@ -89,7 +77,6 @@ BUSINESS_TYPES = [
 # =============================================================================
 
 NEIGHBORHOODS = {
-    # Downtown / Central
     "downtown": ["downtown", "capitol square", "capitol", "state street", "king street"],
     "state street": ["state street", "state st"],
     "capitol square": ["capitol square", "the square"],
@@ -101,33 +88,28 @@ NEIGHBORHOODS = {
     "marquette": ["marquette"],
     "tenney": ["tenney", "tenney park"],
     
-    # Near West  
     "monroe street": ["monroe street", "monroe st"],
     "camp randall": ["camp randall", "regent", "regent street"],
     "vilas": ["vilas", "vilas park"],
     "hilldale": ["hilldale"],
     
-    # Campus
     "campus": ["campus", "uw campus", "university", "bascom", "library mall", "langdon"],
     "state street": ["state street"],
     
     # Isthmus
     "isthmus": ["isthmus"],
     
-    # West Side
     "west side": ["west side", "westside", "west madison"],
     "middleton": ["middleton"],
     "fitchburg": ["fitchburg"],
     "verona": ["verona"],
     "junction": ["junction", "west towne"],
     
-    # East Side
     "east side": ["east side", "eastside", "east madison"],
     "sun prairie": ["sun prairie"],
     "cottage grove": ["cottage grove"],
     "monona": ["monona"],
     
-    # North
     "north side": ["north side", "northside", "north madison"],
     "waunakee": ["waunakee"],
     "deforest": ["deforest", "de forest"],
@@ -137,10 +119,6 @@ NEIGHBORHOODS = {
     "fish hatchery": ["fish hatchery"],
     "park street": ["park street", "park st"],
 }
-
-# =============================================================================
-# FILTERING FUNCTIONS
-# =============================================================================
 
 def has_demand_signal(text):
     """Check if text contains a business demand signal."""
@@ -179,20 +157,13 @@ def is_relevant(text):
     
     return has_business or has_demand or has_location
 
-# =============================================================================
-# MAIN FILTERING
-# =============================================================================
+print("\n[PROCESSING] Filtering to keep relevant entries...")
 
-print("\n🔄 Filtering to keep relevant entries...")
-
-# Add location column
 df["location"] = df["text"].apply(extract_location)
 
-# Filter to relevant only
 df["is_relevant"] = df["text"].apply(is_relevant)
 output_df = df[df["is_relevant"]].copy()
 
-# Keep only needed columns
 output_df = output_df[[
     "text",
     "source", 
@@ -205,17 +176,10 @@ output_df = output_df[[
     "post_id"
 ]].copy()
 
-# Sort by upvote score
 output_df = output_df.sort_values("upvote_score", ascending=False).reset_index(drop=True)
 
-# =============================================================================
-# SAVE OUTPUTS
-# =============================================================================
-
-# CSV for general use
 output_df.to_csv("data/raw/reddit_filtered_final.csv", index=False)
 
-# JSON for web/API
 output_df.to_json("data/raw/reddit_filtered_final.json", orient="records", indent=2)
 
 # JSONL for NLP/HuggingFace
@@ -223,24 +187,20 @@ with open("data/raw/reddit_filtered_final.jsonl", "w", encoding="utf-8") as f:
     for _, row in output_df.iterrows():
         f.write(json.dumps(row.to_dict(), ensure_ascii=False) + "\n")
 
-# =============================================================================
-# SUMMARY
-# =============================================================================
-
 print(f"\n{'='*60}")
-print("FILTERING COMPLETE")
+print("FILTERING COMPLETE"))
 print(f"{'='*60}")
 print(f"Original entries:  {len(df)}")
 print(f"Kept (relevant):   {len(output_df)}")
 print(f"Removed:           {len(df) - len(output_df)}")
 
-print(f"\n📍 BY LOCATION:")
+print(f"\n[LOCATIONS]")
 print(output_df["location"].value_counts().head(15).to_string())
 
-print(f"\n📊 BY SUBREDDIT:")
+print(f"\n[SUBREDDIT]")
 print(output_df["subreddit"].value_counts().to_string())
 
-print(f"\n✅ FILES SAVED:")
+print(f"\n[FILES SAVED]")
 print("  • reddit_filtered_final.csv")
 print("  • reddit_filtered_final.json")
 print("  • reddit_filtered_final.jsonl")

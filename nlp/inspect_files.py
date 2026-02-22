@@ -8,7 +8,6 @@ import json
 import pandas as pd
 from pathlib import Path
 
-# Data files to inspect
 DATA_DIR = Path(__file__).parent.parent
 FILES = {
     "reddit_filtered_final.jsonl": "jsonl",
@@ -65,11 +64,11 @@ def inspect_file(filename, filetype):
     filepath = DATA_DIR / filename
     
     print(f"\n{'='*70}")
-    print(f"📄 {filename}")
+    print(f"[FILE] {filename}")
     print(f"{'='*70}")
     
     if not filepath.exists():
-        print(f"   ❌ FILE NOT FOUND: {filepath}")
+        print(f"   [ERROR] FILE NOT FOUND: {filepath}")
         return
     
     # Load file
@@ -81,16 +80,16 @@ def inspect_file(filename, filetype):
         elif filetype == "csv":
             df = load_csv(filepath)
         else:
-            print(f"   ❌ Unknown file type: {filetype}")
+            print(f"   [ERROR] Unknown file type: {filetype}")
             return
     except Exception as e:
-        print(f"   ❌ Error loading file: {e}")
+        print(f"   [ERROR] Error loading file: {e}")
         return
     
     # Handle dict (for nested JSON)
     if isinstance(df, dict):
-        print(f"\n📊 TYPE: Nested JSON/Dict")
-        print(f"\n🔑 TOP-LEVEL KEYS ({len(df)}):")
+        print(f"\n[INFO] TYPE: Nested JSON/Dict")
+        print(f"\n[KEYS] TOP-LEVEL KEYS ({len(df)}):"))
         for key in df.keys():
             val = df[key]
             if isinstance(val, list):
@@ -100,26 +99,26 @@ def inspect_file(filename, filetype):
             else:
                 print(f"   • {key}: {type(val).__name__}")
         
-        print(f"\n👀 PREVIEW:")
+        print(f"\n[PREVIEW]")
         preview = json.dumps(df, indent=2, default=str)[:1000]
         print(preview + ("..." if len(json.dumps(df)) > 1000 else ""))
         return
     
     # DataFrame inspection
-    print(f"\n📊 TOTAL ROWS: {len(df)}")
+    print(f"\n[ROWS] TOTAL ROWS: {len(df)}")
     
-    print(f"\n🔑 COLUMNS ({len(df.columns)}):")
+    print(f"\n[COLUMNS] COLUMNS ({len(df.columns)}):"))
     for col in df.columns:
         dtype = df[col].dtype
         print(f"   • {col} ({dtype})")
     
-    print(f"\n👀 FIRST 2 ROWS:")
+    print(f"\n[PREVIEW] FIRST 2 ROWS:")
     pd.set_option('display.max_columns', None)
     pd.set_option('display.width', None)
     pd.set_option('display.max_colwidth', 50)
     print(df.head(2).to_string())
     
-    print(f"\n⚠️  NULL/EMPTY VALUES:")
+    print(f"\n[WARNING] NULL/EMPTY VALUES:")
     nulls = count_nulls(df)
     if isinstance(nulls, str):
         print(f"   {nulls}")
@@ -130,7 +129,7 @@ def inspect_file(filename, filetype):
 
 def main():
     print("="*70)
-    print("🔍 DATA FILE INSPECTION FOR NLP SENTIMENT ANALYSIS")
+    print("DATA FILE INSPECTION FOR NLP SENTIMENT ANALYSIS")
     print("="*70)
     print(f"Data directory: {DATA_DIR}")
     
@@ -138,7 +137,7 @@ def main():
         inspect_file(filename, filetype)
     
     print(f"\n{'='*70}")
-    print("✅ INSPECTION COMPLETE")
+    print("[OK] INSPECTION COMPLETE")
     print(f"{'='*70}")
 
 

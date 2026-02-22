@@ -1,14 +1,11 @@
 import pandas as pd
 import json
 
-# Load raw data
 df = pd.read_csv("data/raw/reddit_raw.csv")
 
 print(f"Loaded {len(df)} entries from data/raw/reddit_raw.csv")
 
-# Keywords that signal business demand or neighborhood sentiment
 RELEVANT_KEYWORDS = [
-    # Direct demand signals
     "wish there was",
     "need a",
     "why is there no",
@@ -26,7 +23,6 @@ RELEVANT_KEYWORDS = [
     "does madison have",
     "is there a",
 
-    # Business types
     "coffee",
     "pharmacy",
     "grocery",
@@ -42,7 +38,6 @@ RELEVANT_KEYWORDS = [
     "shop",
     "store",
 
-    # Neighborhoods
     "state street",
     "willy street",
     "east washington",
@@ -57,7 +52,6 @@ RELEVANT_KEYWORDS = [
     "near campus",
     "near the capitol",
 
-    # Sentiment signals
     "love this place",
     "hate that",
     "so good",
