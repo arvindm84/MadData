@@ -148,11 +148,3 @@ transformers               # HuggingFace NLP models
 3. **Geographic Mapping**: Attach sentiment scores to Madison coordinates and parcels
 4. **Demand Scoring**: Combine multiple signals (sentiment, trends, business types) into location scores
 5. **Visualization**: Display results on interactive map and venture recommender tool
-
-## Contributing
-
-Contributions are welcome! Areas for enhancement:
-- Additional data sources
-- Refined scoring algorithms
-- Interactive feature additions
-- Performance optimizations
