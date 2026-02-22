@@ -124,7 +124,9 @@
     "description": null,
     "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/7f7606214af34e579018ca3f64a5594c1d/Info",
     "relevant": true,
-    "filter_reason": "strong match: (neighborhood|community) meeting"
+    "filter_reason": "strong match: (neighborhood|community) meeting",
+    "video_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/7f7606214af34e579018ca3f64a5594c1d",
+    "transcript_path": "transcripts/7152021_Liquor_License_for_714_W_Badger_Road_Neighborhood_Meeting_Meeting_of_Jul.txt"
   },
   {
     "channel": "neighborhood_meetings",
