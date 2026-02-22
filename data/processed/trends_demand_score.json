@@ -1,0 +1,72 @@
+[
+  {
+    "business_type": "coffee shop",
+    "demand_score": 26.2,
+    "trend_direction": "stable"
+  },
+  {
+    "business_type": "restaurant",
+    "demand_score": 30.0,
+    "trend_direction": "stable"
+  },
+  {
+    "business_type": "pharmacy",
+    "demand_score": 25.3,
+    "trend_direction": "stable"
+  },
+  {
+    "business_type": "grocery store",
+    "demand_score": 25.0,
+    "trend_direction": "stable"
+  },
+  {
+    "business_type": "bar",
+    "demand_score": 35.0,
+    "trend_direction": "stable"
+  },
+  {
+    "business_type": "gym",
+    "demand_score": 36.5,
+    "trend_direction": "rising"
+  },
+  {
+    "business_type": "late night food",
+    "demand_score": 12.0,
+    "trend_direction": "rising"
+  },
+  {
+    "business_type": "bakery",
+    "demand_score": 20.6,
+    "trend_direction": "rising"
+  },
+  {
+    "business_type": "convenience store",
+    "demand_score": 2.5,
+    "trend_direction": "stable"
+  },
+  {
+    "business_type": "coworking space",
+    "demand_score": 5.9,
+    "trend_direction": "stable"
+  },
+  {
+    "business_type": "daycare",
+    "demand_score": 16.3,
+    "trend_direction": "stable"
+  },
+  {
+    "business_type": "hardware store",
+    "demand_score": 24.6,
+    "trend_direction": "falling"
+  },
+  {
+    "business_type": "urgent care",
+    "demand_score": 25.1,
+    "trend_direction": "stable"
+  },
+  {
+    "business_type": "general business",
+    "demand_score": 0.0,
+    "trend_direction": "stable"
+  }
+]
