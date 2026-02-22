@@ -1,2 +1,5 @@
-.venv
-.env
+.venv/
+data/Tax_Parcels.geojson
+data/Zoning_Districts.geojson
+business_scores.csv
+data/processed/business_scores.csv

@@ -18,8 +18,8 @@ from pytrends.request import TrendReq
 GEO       = "US-WI-669"   # Madison, WI DMA
 TIMEFRAME = "today 5-y"
 
-OUTPUT_CSV     = Path("google_trends_results.csv")
-OUTPUT_SUMMARY = Path("google_trends_summary.json")
+OUTPUT_CSV     = Path("data/raw/google_trends_results.csv")
+OUTPUT_SUMMARY = Path("data/raw/google_trends_summary.json")
 
 # ── 14 Categories with their search keywords ──────────────────────────────────
 

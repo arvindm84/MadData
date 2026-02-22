@@ -207,12 +207,12 @@ def run_scraper():
     # Step 3: Save
     if full_articles:
         df = pd.DataFrame(full_articles)
-        df.to_csv("isthmus_articles.csv", index=False)
-        df.to_json("isthmus_articles.json", orient="records", indent=2)
+        df.to_csv("data/raw/isthmus_articles.csv", index=False)
+        df.to_json("data/raw/isthmus_articles.json", orient="records", indent=2)
         
         # Also save as JSONL for NLP
         import json
-        with open("isthmus_articles.jsonl", "w") as f:
+        with open("data/raw/isthmus_articles.jsonl", "w") as f:
             for _, row in df.iterrows():
                 f.write(json.dumps(row.to_dict()) + "\n")
         

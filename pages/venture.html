@@ -27,19 +27,21 @@
     </nav>
     <main class="venture-main">
         <h1>Venture Matchmaker</h1>
-        <p class="venture-intro">Describe your business idea below. We'll use neighborhood sentiment and demographic
-            gaps to recommend the best places in Madison to establish your business.</p>
+        <p class="venture-intro">Describe your business idea below. We'll use local competition, neighborhood
+            popularity, and upkeep costs to recommend the best places in Madison to establish your venture.</p>
         <div class="venture-search-wrap">
             <label for="venture-input" class="sr-only">Describe your business idea</label>
             <input type="text" id="venture-input" class="venture-input"
                 placeholder="e.g. A cozy bookstore with coffee and events…" aria-label="Describe your business idea">
-            <button type="button" class="venture-submit">Get Recommendations</button>
+            <button type="button" id="venture-submit" class="venture-submit">Get Recommendations</button>
         </div>
-        <div class="venture-results" aria-live="polite">
+        <div id="results-container" class="venture-results" aria-live="polite">
             <p class="venture-results-placeholder">[ Recommendations will appear here after you search ]</p>
         </div>
     </main>
-    <footer class="footer">© 2025 MadData. All Rights Reserved.</footer>
+    <footer class="footer">© 2026 MadData. All Rights Reserved.</footer>
+
+    <script src="../js/venture.js"></script>
 </body>
 
 </html>

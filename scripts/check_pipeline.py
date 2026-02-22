@@ -10,7 +10,7 @@ from pathlib import Path
 import random
 
 # Project root
-PROJECT_ROOT = Path(__file__).parent
+PROJECT_ROOT = Path(__file__).parent.parent
 PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
 
 # Files to check
@@ -26,7 +26,7 @@ FILES_TO_CHECK = [
     "data/processed/sentiment_by_area.json",
     "data/processed/sentiment_by_area_business.json",
     "data/processed/trends_demand_score.json",
-    "business_scores.csv",
+    "data/business_scores.csv",
 ]
 
 # Expected business types

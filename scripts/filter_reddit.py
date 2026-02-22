@@ -2,9 +2,9 @@ import pandas as pd
 import json
 
 # Load raw data
-df = pd.read_csv("reddit_raw.csv")
+df = pd.read_csv("data/raw/reddit_raw.csv")
 
-print(f"Loaded {len(df)} entries from reddit_raw.csv")
+print(f"Loaded {len(df)} entries from data/raw/reddit_raw.csv")
 
 # Keywords that signal business demand or neighborhood sentiment
 RELEVANT_KEYWORDS = [
@@ -90,13 +90,13 @@ relevant_df = relevant_df.drop(columns=["is_relevant"])
 relevant_df = relevant_df.sort_values("upvote_score", ascending=False).reset_index(drop=True)
 
 # Save as CSV
-relevant_df.to_csv("reddit_filtered.csv", index=False)
+relevant_df.to_csv("data/raw/reddit_filtered.csv", index=False)
 
 # Save as JSON (for NLP)
-relevant_df.to_json("reddit_filtered.json", orient="records", indent=2)
+relevant_df.to_json("data/raw/reddit_filtered.json", orient="records", indent=2)
 
 # Save as JSONL (best for NLP pipelines)
-with open("reddit_filtered.jsonl", "w", encoding="utf-8") as f:
+with open("data/raw/reddit_filtered.jsonl", "w", encoding="utf-8") as f:
     for _, row in relevant_df.iterrows():
         f.write(json.dumps(row.to_dict(), ensure_ascii=False) + "\n")
 

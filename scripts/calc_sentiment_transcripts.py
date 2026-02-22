@@ -32,7 +32,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 analyzer       = SentimentIntensityAnalyzer()
 TRANSCRIPT_DIR = Path("transcripts")
-OUTPUT_JSON    = Path("transcript_sentiment.json")
+OUTPUT_JSON    = Path("data/raw/transcript_sentiment.json")
 
 # ── 14 Business categories (matches Google Trends categories) ─────────────────
 

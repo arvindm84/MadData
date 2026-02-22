@@ -28,72 +28,53 @@
         </div>
     </nav>
     <main class="map-main">
-        <h1>Interactive Vacancy Map</h1>
+        <h1>Vacancy Map</h1>
         <p class="map-info">Explore Madison's Retail Lots. This geospatial heatmap shows where demand is unmet and
             opportunities are highest.</p>
 
-        <div id="map" class="map-box" aria-label="Interactive map of Madison"></div>
+        <div id="map" class="map-box" aria-label="Vacancy map of Madison"></div>
+
+        <section id="venture-recommendations" class="venture-recommendations hidden">
+            <h2>Top Recommended Ventures</h2>
+            <p id="selected-location-name">Select a lot to see recommendations</p>
+            <div class="cards-container">
+                <article class="venture-card">
+                    <div class="card-rank">1</div>
+                    <div class="card-content">
+                        <h3 class="business-type">Artisan Coffee Shop</h3>
+                        <p class="chance-label">Success Probability: <span class="probability-high">94%</span></p>
+                        <p class="card-reason">High daytime foot traffic and a stark demographic gap for premium
+                            caffeine options.</p>
+                    </div>
+                </article>
+                <article class="venture-card">
+                    <div class="card-rank">2</div>
+                    <div class="card-content">
+                        <h3 class="business-type">Boutique Fitness Studio</h3>
+                        <p class="chance-label">Success Probability: <span class="probability-high">86%</span></p>
+                        <p class="card-reason">Strong demographic alignment with health-conscious young professionals
+                            nearby.</p>
+                    </div>
+                </article>
+                <article class="venture-card">
+                    <div class="card-rank">3</div>
+                    <div class="card-content">
+                        <h3 class="business-type">Neighborhood Grocer</h3>
+                        <p class="chance-label">Success Probability: <span class="probability-med">78%</span></p>
+                        <p class="card-reason">Frequent Yelp complaints about immediate grocery scarcity in this exact
+                            sector.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
     </main>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
-    <script>
-        (function () {
-            var mapEl = document.getElementById('map');
-            if (!mapEl) return;
+    <script src="../js/map.js"></script>
 
-            var madison = [43.0760, -89.3900];
-            var map = L.map('map', { zoomControl: false }).setView(madison, 14);
-
-            L.control.zoom({ position: 'bottomright' }).addTo(map);
-
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-                subdomains: 'abcd',
-                maxZoom: 20
-            }).addTo(map);
-
-            var addressPoints = [
-                [43.0746, -89.3900, 0.9], [43.0740, -89.3920, 0.8], [43.0725, -89.3950, 0.6],
-                [43.0750, -89.3850, 0.7], [43.0760, -89.3820, 0.9], [43.0730, -89.3800, 0.6],
-                [43.0800, -89.3700, 0.8], [43.0820, -89.3650, 0.9], [43.0840, -89.3600, 0.5],
-                [43.0680, -89.4000, 0.7], [43.0670, -89.4050, 0.9], [43.0650, -89.4100, 0.6],
-                [43.0750, -89.4080, 0.8], [43.0760, -89.4120, 0.5], [43.0740, -89.4150, 0.6]
-            ];
-
-            var heat = L.heatLayer(addressPoints, {
-                radius: 35,
-                blur: 25,
-                maxZoom: 14,
-                gradient: { 0.2: '#00f', 0.4: '#0ff', 0.6: '#0f0', 0.8: '#ff0', 1.0: '#f00' }
-            }).addTo(map);
-
-            var customIcon = L.divIcon({
-                className: 'desert-marker',
-                html: '<div class="pulse-marker"></div>',
-                iconSize: [20, 20]
-            });
-
-            var deserts = [
-                { lat: 43.0746, lng: -89.3900, name: 'State St Vacancy', demand: 'High demand for late-night food.' },
-                { lat: 43.0760, lng: -89.3820, name: 'Capitol Square Spot', demand: 'High demand for specialty coffee.' },
-                { lat: 43.0820, lng: -89.3650, name: 'Willy St Shell', demand: 'Community needs a fresh grocer.' },
-                { lat: 43.0670, lng: -89.4050, name: 'Regent St Opportunity', demand: 'Ideal for sports apparel.' }
-            ];
-
-            deserts.forEach(function (d) {
-                L.marker([d.lat, d.lng], { icon: customIcon }).addTo(map)
-                    .bindPopup('<b>' + d.name + '</b><br><i>Retail Desert Match</i><br>' + d.demand);
-            })
-
-            setTimeout(function () {
-                map.invalidateSize();
-            }, 500);
-        })();
-    </script>
-
-    <footer class="footer">© 2025 MadData. All Rights Reserved.</footer>
+    <footer class="footer">© 2026 MadData. All Rights Reserved.</footer>
 </body>
 
 </html>

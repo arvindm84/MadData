@@ -242,8 +242,8 @@ def run_full_scrape():
     seen_texts = set()
     
     # Output files
-    csv_file = "reddit_raw.csv"
-    jsonl_file = "reddit_raw.jsonl"  # JSON Lines - great for NLP
+    csv_file = "data/raw/reddit_raw.csv"
+    jsonl_file = "data/raw/reddit_raw.jsonl"  # JSON Lines - great for NLP
     
     total_combos = len(SUBREDDITS) * len(KEYWORDS)
     count = 0

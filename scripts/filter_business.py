@@ -1,4 +1,4 @@
-git #!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Filter Reddit data to keep only RELEVANT entries for sentiment analysis.
 Keeps entries that mention:
@@ -12,8 +12,8 @@ import json
 import re
 
 # Load filtered data
-df = pd.read_csv("reddit_filtered.csv")
-print(f"✅ Loaded {len(df)} entries from reddit_filtered.csv")
+df = pd.read_csv("data/raw/reddit_filtered.csv")
+print(f"✅ Loaded {len(df)} entries from data/raw/reddit_filtered.csv")
 
 # =============================================================================
 # BUSINESS DEMAND SIGNAL KEYWORDS
@@ -213,13 +213,13 @@ output_df = output_df.sort_values("upvote_score", ascending=False).reset_index(d
 # =============================================================================
 
 # CSV for general use
-output_df.to_csv("reddit_filtered_final.csv", index=False)
+output_df.to_csv("data/raw/reddit_filtered_final.csv", index=False)
 
 # JSON for web/API
-output_df.to_json("reddit_filtered_final.json", orient="records", indent=2)
+output_df.to_json("data/raw/reddit_filtered_final.json", orient="records", indent=2)
 
 # JSONL for NLP/HuggingFace
-with open("reddit_filtered_final.jsonl", "w", encoding="utf-8") as f:
+with open("data/raw/reddit_filtered_final.jsonl", "w", encoding="utf-8") as f:
     for _, row in output_df.iterrows():
         f.write(json.dumps(row.to_dict(), ensure_ascii=False) + "\n")
 

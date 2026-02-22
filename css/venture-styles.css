@@ -88,29 +88,157 @@
 
 .venture-submit:hover {
     background: #48227a;
-    transform: translateY(-2px);
-}
-
-.venture-submit:active {
-    transform: translateY(0);
 }
 
 /* Results Area */
 .venture-results {
     min-height: 200px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: rgba(20, 20, 20, 0.5);
     border: 2px dashed rgba(255, 255, 255, 0.15);
     border-radius: 16px;
     padding: 2rem;
+    padding-top: 1rem;
+    text-align: left;
 }
 
 .venture-results-placeholder {
     color: rgba(255, 255, 255, 0.4);
     font-size: 1.1rem;
     font-style: italic;
+    text-align: center;
+}
+
+.results-header {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.results-header h2 {
+    font-size: 2rem;
+    color: white;
+}
+
+.results-list {
+    width: 100%;
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.result-item:hover {
+    transform: scale(1.01);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.result-rank {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    margin-right: 1.5rem;
+    min-width: 40px;
+}
+
+.result-info {
+    flex: 1;
+}
+
+.result-address {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.result-reason {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.4;
+}
+
+.result-score {
+    text-align: right;
+    padding-left: 1.5rem;
+}
+
+.score-num {
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.score-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    opacity: 0.7;
+    margin-top: 2px;
+}
+
+/* Success Categories */
+.probability-high {
+    color: #4ade80;
+}
+
+.probability-med {
+    color: #facc15;
+}
+
+.probability-low {
+    color: #f87171;
+}
+
+.results-footer {
+    margin-top: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+.view-map-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: transparent;
+    border: 1px solid #6c3baa;
+    color: #6c3baa;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.view-map-btn:hover {
+    background: #6c3baa;
+    color: #fff;
+}
+
+.loading-state {
+    font-size: 1.2rem;
+    color: #6c3baa;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
 }
 
 @media (min-width: 768px) {
