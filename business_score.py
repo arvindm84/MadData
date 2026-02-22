@@ -18,7 +18,7 @@ Output: A DataFrame with the following columns:
 """
 def calculate_business_score():
     # Load the file
-    vacant_lots = gpd.read_file('static\\datasets\\vacant_lots_madison.geojson')
+    vacant_lots = gpd.read_file('static/datasets/vacant_lots_madison.geojson')
 
     # Convert degrees to metres by projecting to a Metric CRS
     # EPSG:32616 is the UTM Zone 16N projection, which perfectly covers Madison, WI.
@@ -40,7 +40,7 @@ def calculate_business_score():
     vacant_lots_clean = vacant_lots[cols_to_keep].copy()
 
     # Load the master list of all Madison businesses
-    all_businesses = gpd.read_file('static\\datasets\\all_businesses_madison.geojson')
+    all_businesses = gpd.read_file('static/datasets/all_businesses_madison.geojson')
 
     # Project to meters (EPSG:32616 for Madison)
     all_businesses = all_businesses.to_crs(epsg=32616)
@@ -51,7 +51,7 @@ def calculate_business_score():
     existing_coffee_shops = all_businesses[all_businesses['amenity'] == 'cafe'].copy()
 
     # Load the Census GeoJSON you just downloaded
-    census_tracts = gpd.read_file('static\\datasets\\census_data_2024.geojson')
+    census_tracts = gpd.read_file('static/datasets/census_data_2024.geojson')
 
     # Project to meters to match your other data!
     census_tracts = census_tracts.to_crs(epsg=32616)
