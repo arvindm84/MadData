@@ -137,6 +137,39 @@ def main():
     print(f"   Using {len(business_types)} business types for scoring")
     
     # =========================================================================
+    # LOAD TAX & CENSUS DATA FROM GEOJSON
+    # =========================================================================
+    tax_lookup = {}
+    demo_lookup = {}
+    
+    print("\n🗺️ Loading Tax & Demographic data from vacant_lots_scored.geojson...")
+    GEOJSON_FILE = PROJECT_ROOT / "data" / "vacant_lots_scored.geojson"
+    JS_FILE = PROJECT_ROOT / "data" / "vacant_lots_scored.js"
+    
+    geojson_data = None
+    if GEOJSON_FILE.exists():
+        with open(GEOJSON_FILE, "r") as f:
+            geojson_data = json.load(f)
+            
+        for feature in geojson_data.get("features", []):
+            props = feature.get("properties", {})
+            fid = props.get("id")
+            if fid:
+                tax_lookup[fid] = props.get("TotalTaxes", 0)
+                demo_lookup[fid] = props.get("Median_Income", 0)
+                
+        print(f"   Loaded tax data for {len(tax_lookup)} lots")
+        
+        # Calculate averages for normalization
+        avg_tax = sum(tax_lookup.values()) / len(tax_lookup) if tax_lookup else 1
+        avg_income = sum(demo_lookup.values()) / len(demo_lookup) if demo_lookup else 1
+        print(f"   City Average Tax: ${avg_tax:,.2f} | Avg Income: ${avg_income:,.2f}")
+    else:
+        print(f"   ⚠️ Could not load {GEOJSON_FILE.name}")
+        avg_tax = 1
+        avg_income = 1
+
+    # =========================================================================
     # CALCULATE SCORES FOR EACH LOCATION × BUSINESS TYPE
     # =========================================================================
     # Deduplicate before processing:
@@ -159,7 +192,16 @@ def main():
         base_business_score = row.get("business_score", 0.5)
         saturation_score = row.get("saturation_score", 0.5)
         traffic_score = row.get("traffic_score", 0.5)
-        demo_score = row.get("demo_score", 0.5)
+        
+        # Overwrite demo score with real median income ratio calculation
+        lot_income = demo_lookup.get(lot_id, avg_income)
+        demo_score = min(1.0, lot_income / (avg_income * 2 if avg_income > 0 else 1))
+        
+        # Calculate a new Tax ratio score (higher taxes = larger penalty)
+        lot_tax = tax_lookup.get(lot_id, avg_tax)
+        tax_ratio = lot_tax / avg_tax if avg_tax > 0 else 1
+        # If taxes are higher than average, max penalty is 25%. If lower, it acts as a very slight baseline boost.
+        tax_penalty_modifier = min(0.25, max(-0.05, (tax_ratio - 1) * 0.15))
         
         # Find closest Reddit/Isthmus sentiment match for this business type
         matched_location, positive_ratio, distance_km = find_closest_sentiment(
@@ -185,11 +227,14 @@ def main():
         # New weights:
         #   - Sentiment Score: 40% (average of Reddit + Transcript)
         #   - Business Score (OSM): 40%
-        #   - Other Factors (Trends + Demo): 20%
+        #   - Other Factors (Trends + Demo + Tax Variation): 20%
         # =====================================================================
         
         sentiment_score = (positive_ratio + transcript_sentiment) / 2.0
-        other_factors = (trends_demand + demo_score) / 2.0  # Simple representation of other factors
+        
+        # Tax penalty hurts the "other factors" score directly, adding hyper-local variation
+        base_other_factors = (trends_demand + demo_score) / 2.0 
+        other_factors = max(0.0, base_other_factors - tax_penalty_modifier)
         
         raw_probability = (
             0.40 * sentiment_score +
@@ -204,6 +249,7 @@ def main():
         reason_parts = [matched_location.title() + " Sentiment."]
         if trends_demand > 0.6: reason_parts.append("High search trends.")
         if demo_score > 0.7: reason_parts.append("Excellent demographics match.")
+        if tax_penalty_modifier > 0.1: reason_parts.append("Caution: High local property taxes.")
         if saturation_score < 0.3: reason_parts.append("Low local competition.")
         elif saturation_score > 0.7: reason_parts.append("High local competition.")
         
@@ -236,12 +282,8 @@ def main():
     # INJECT INTO GEOJSON
     # =========================================================================
     print("\n🧬 Injecting final scores into Vacant Lots GeoJSON...")
-    GEOJSON_FILE = PROJECT_ROOT / "data" / "vacant_lots_scored.geojson"
-    JS_FILE = PROJECT_ROOT / "data" / "vacant_lots_scored.js"
     
-    if GEOJSON_FILE.exists():
-        with open(GEOJSON_FILE, "r") as f:
-            geojson_data = json.load(f)
+    if geojson_data:
             
         # Group new scores by lot id
         lot_scores_map = {}
