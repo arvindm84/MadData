@@ -27,7 +27,7 @@ OUTPUT_FILE = DATA_DIR / "data" / "processed" / "sentiment_scores_raw.csv"
 
 # Device setup - use GPU if available
 device = 0 if torch.cuda.is_available() else -1
-print(f"🖥️  Using device: {'GPU (CUDA)' if device == 0 else 'CPU'}")
+print(f"Using device: {'GPU (CUDA)' if device == 0 else 'CPU'}")
 
 # Batch size (increased for GPU efficiency)
 BATCH_SIZE = 64
@@ -49,7 +49,7 @@ def run_sentiment_analysis(texts, sentiment_pipe):
             remaining_batches = total_batches - (batch_idx + 1)
             est_remaining_secs = avg_time_per_batch * remaining_batches
             est_remaining_mins = est_remaining_secs / 60
-            print(f"  ⏱️  Estimated time remaining: {est_remaining_mins:.1f} min", end="\r")
+            print(f"Estimated time remaining: {est_remaining_mins:.1f} min", end="\r")
         
         # Run inference - process batch with return_all_scores
         batch_results = sentiment_pipe(
@@ -116,7 +116,7 @@ def run_business_classification(texts, classifier):
             remaining_batches = total_batches - (batch_idx + 1)
             est_remaining_secs = avg_time_per_batch * remaining_batches
             est_remaining_mins = est_remaining_secs / 60
-            print(f"  ⏱️  Estimated time remaining: {est_remaining_mins:.1f} min", end="\r")
+            print(f"Estimated time remaining: {est_remaining_mins:.1f} min", end="\r")
         
         for text in batch:
             # Run zero-shot classification
@@ -137,7 +137,7 @@ def run_business_classification(texts, classifier):
 
 def main():
     # Load data
-    print(f"\n📂 Loading: {INPUT_FILE}")
+    print(f"\nLoading: {INPUT_FILE}")
     df = pd.read_csv(INPUT_FILE)
     print(f"   Loaded {len(df)} rows")
     
@@ -204,19 +204,19 @@ def main():
     print(f"{'='*60}")
     
     # Save
-    print(f"\n💾 Saving: {OUTPUT_FILE}")
+    print(f"\nSaving: {OUTPUT_FILE}")
     df.to_csv(OUTPUT_FILE, index=False)
     
     # Sentiment breakdown
-    print(f"\n📊 SENTIMENT LABEL BREAKDOWN:")
+    print(f"\nSENTIMENT LABEL BREAKDOWN:")
     print(df["sentiment_label"].value_counts().to_string())
     
     # Business type breakdown
-    print(f"\n🏪 BUSINESS TYPE BREAKDOWN:")
+    print(f"\nBUSINESS TYPE BREAKDOWN:")
     print(df["business_type"].value_counts().to_string())
     
     # Sample rows
-    print(f"\n📋 SAMPLE ROWS (5):")
+    print(f"\nSAMPLE ROWS (5):")
     print("-" * 100)
     sample = df[["text", "sentiment_label", "business_type"]].head(5)
     for i, row in sample.iterrows():
@@ -225,7 +225,7 @@ def main():
         print(f"   {text_preview}")
         print()
     
-    print(f"\n✅ COMPLETE! Saved {len(df)} rows with 7 new columns.")
+    print(f"\nCOMPLETE! Saved {len(df)} rows with 7 new columns.")
 
 
 if __name__ == "__main__":
