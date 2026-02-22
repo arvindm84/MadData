@@ -5,11 +5,12 @@ Final Probability Scoring for Madison WI Business Viability.
 Combines:
 - business_scores.csv (saturation, business score by OSM location)
 - sentiment_by_area_business.json (sentiment by location_tag + business type)
+- transcript_sentiment.json (additional sentiment from transcripts)
 - trends_demand_score.json (demand score by business type)
 
 Approach:
 - For each OSM location (lat/lon) × each business type from trends
-- Find closest sentiment match for that business type
+- Find closest sentiment match for that business type (from combined sentiment sources)
 - Combine scores into final probability
 
 Output: final_scores.csv with calibrated probability scores
@@ -27,6 +28,7 @@ DATA_DIR = PROJECT_ROOT / "data" / "processed"
 
 BUSINESS_SCORES_FILE = DATA_DIR / "business_scores.csv"
 SENTIMENT_FILE = DATA_DIR / "sentiment_by_area_business.json"
+TRANSCRIPT_SENTIMENT_FILE = PROJECT_ROOT / "transcript_sentiment.json"
 TRENDS_FILE = DATA_DIR / "trends_demand_score.json"
 
 OUTPUT_CSV = DATA_DIR / "final_scores.csv"
@@ -103,12 +105,23 @@ def main():
     business_df = pd.read_csv(BUSINESS_SCORES_FILE)
     print(f"      {len(business_df)} OSM locations")
     
-    # Sentiment by area + business
+    # Sentiment by area + business (Reddit/Isthmus)
     print(f"   Loading: {SENTIMENT_FILE.name}")
     with open(SENTIMENT_FILE, "r") as f:
         sentiment_data = json.load(f)
     sentiment_df = pd.DataFrame(sentiment_data)
-    print(f"      {len(sentiment_df)} location×business groups")
+    print(f"      {len(sentiment_df)} location×business groups from Reddit/Isthmus")
+    
+    # Transcript sentiment (separate source with its own weight)
+    transcript_df = None
+    if TRANSCRIPT_SENTIMENT_FILE.exists():
+        print(f"   Loading: {TRANSCRIPT_SENTIMENT_FILE.name}")
+        with open(TRANSCRIPT_SENTIMENT_FILE, "r") as f:
+            transcript_data = json.load(f)
+        transcript_df = pd.DataFrame(transcript_data)
+        print(f"      {len(transcript_df)} location×business groups from transcripts")
+    else:
+        print(f"   ⚠️ {TRANSCRIPT_SENTIMENT_FILE.name} not found")
     
     # Trends demand scores
     print(f"   Loading: {TRENDS_FILE.name}")
@@ -143,25 +156,42 @@ def main():
         
         # For each business type, calculate a score
         for business_type in business_types:
-            # Find closest sentiment match for this business type
+            # Find closest Reddit/Isthmus sentiment match for this business type
             matched_location, positive_ratio, distance_km = find_closest_sentiment(
                 lat, lon, business_type, sentiment_df
             )
+            
+            # Find closest transcript sentiment match (if available)
+            transcript_sentiment = 0.5  # Default neutral
+            transcript_location = "no_data"
+            if transcript_df is not None and len(transcript_df) > 0:
+                t_loc, t_ratio, t_dist = find_closest_sentiment(
+                    lat, lon, business_type, transcript_df
+                )
+                if t_loc != "no_data":
+                    transcript_sentiment = t_ratio
+                    transcript_location = t_loc
             
             # Get trends demand score (0-100 -> 0-1)
             trends_demand = trends_data.get(business_type, 25) / 100.0
             
             # =====================================================================
             # CALCULATE FINAL PROBABILITY
+            # New weights:
+            #   - Business Score (OSM): 30%
+            #   - Reddit/Isthmus Sentiment: 25%
+            #   - Transcript Sentiment: 25%
+            #   - Google Trends Demand: 20%
             # =====================================================================
             
-            # Sentiment component (positive_ratio is already 0-1)
-            sentiment_component = positive_ratio
+            # Sentiment components (positive_ratio is already 0-1)
+            reddit_sentiment = positive_ratio
             
             # Weighted combination (all in 0-1 range)
             raw_probability = (
-                0.40 * base_business_score +
-                0.40 * sentiment_component +
+                0.30 * base_business_score +
+                0.25 * reddit_sentiment +
+                0.25 * transcript_sentiment +
                 0.20 * trends_demand
             )
             
@@ -176,10 +206,12 @@ def main():
                 "business_type": business_type,
                 "final_probability": calibrated_probability,
                 "base_business_score": round(base_business_score * 100, 1),
-                "sentiment_score": round(sentiment_component * 100, 1),
+                "reddit_sentiment_score": round(reddit_sentiment * 100, 1),
+                "transcript_sentiment_score": round(transcript_sentiment * 100, 1),
                 "trends_demand_score": round(trends_demand * 100, 1),
                 "saturation_score": round(saturation_score, 3),
-                "matched_sentiment_location": matched_location,
+                "matched_reddit_location": matched_location,
+                "matched_transcript_location": transcript_location,
                 "distance_to_sentiment_km": round(distance_km, 2)
             })
     
@@ -216,9 +248,9 @@ def main():
     print("📊 TOP 10 HIGHEST PROBABILITY OPPORTUNITIES")
     print("="*60)
     
-    top_10 = output_df.head(10)[["id", "business_type", "final_probability", "matched_sentiment_location"]]
+    top_10 = output_df.head(10)[["id", "business_type", "final_probability", "matched_reddit_location"]]
     for i, row in top_10.iterrows():
-        print(f"{i+1:2}. {row['final_probability']:5.1f}% | {row['business_type']:20s} | {row['matched_sentiment_location']}")
+        print(f"{i+1:2}. {row['final_probability']:5.1f}% | {row['business_type']:20s} | {row['matched_reddit_location']}")
     
     # Best by each business type
     print("\n" + "="*60)
