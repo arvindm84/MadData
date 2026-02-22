@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venture Matchmaker – MadData</title>
+    <link rel="stylesheet" href="../css/main-styles.css">
+    <link rel="stylesheet" href="../css/venture-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="../index.html" class="nav-brand">MadData</a>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="map.html">Map</a>
+            <a href="venture.html">Ventures</a>
+        </div>
+    </nav>
+    <main class="venture-main">
+        <h1>Venture Matchmaker</h1>
+        <p class="venture-intro">Describe your business idea below. We'll use neighborhood sentiment and demographic
+            gaps to recommend the best places in Madison to establish your business.</p>
+        <div class="venture-search-wrap">
+            <label for="venture-input" class="sr-only">Describe your business idea</label>
+            <input type="text" id="venture-input" class="venture-input"
+                placeholder="e.g. A cozy bookstore with coffee and events…" aria-label="Describe your business idea">
+            <button type="button" class="venture-submit">Get Recommendations</button>
+        </div>
+        <div class="venture-results" aria-live="polite">
+            <p class="venture-results-placeholder">[ Recommendations will appear here after you search ]</p>
+        </div>
+    </main>
+    <footer class="footer">© 2025 MadData. All Rights Reserved.</footer>
+</body>
+
+</html>

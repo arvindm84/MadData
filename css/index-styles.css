@@ -1,0 +1,244 @@
+/* Home Page */
+.home-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.home-page {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #121212;
+    background-attachment: fixed;
+}
+
+/* Hero Section */
+.home-hero {
+    padding: 2rem 1rem 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-hero-title {
+    font-size: 5rem;
+    font-weight: 800;
+    margin: 0 0 1rem;
+    background: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -2px;
+}
+
+.home-text {
+    font-size: 3rem;
+    line-height: 1.6;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    max-width: 800px;
+    color: white;
+    font-weight: 300;
+}
+
+/* Base Sections */
+.home-section {
+    padding-bottom: 1rem;
+    margin: 0 auto;
+    max-width: 900px;
+    text-align: left;
+}
+
+.home-section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.home-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #6c3baa;
+    border-radius: 2px;
+}
+
+.home-intro-lead,
+.home-problem-lead,
+.home-pipeline-intro,
+.home-how-intro {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+}
+
+.home-intro-body {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.home-problem-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.home-problem-list li {
+    background: rgba(40, 40, 40, 0.6);
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid #ff4d4d;
+    border-radius: 0 8px 8px 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Pipeline Flow */
+.home-pipeline-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.home-pipeline-step {
+    flex: 1;
+    min-width: 200px;
+    background: rgba(30, 30, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.home-pipeline-step:hover {
+    transform: translateY(-5px);
+    border-color: #8f011b;
+}
+
+.home-pipeline-step-label {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ff4d4d;
+    margin-bottom: 0.75rem;
+}
+
+.home-pipeline-step-desc {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+}
+
+.home-pipeline-arrow {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* How to Cards */
+.home-how-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.home-how-card {
+    background: rgba(30, 30, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-how-card:hover {
+    transform: translateY(-8px);
+}
+
+.home-how-card-number {
+    width: 45px;
+    height: 45px;
+    background: #6c3baa;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.home-how-card-title {
+    font-size: 1.75rem;
+    margin: 0 0 1rem;
+    font-weight: 700;
+}
+
+.home-how-card-desc {
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.home-how-steps {
+    margin-bottom: 2.5rem;
+    padding-left: 1.25rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+.home-how-steps li {
+    margin-bottom: 0.5rem;
+}
+
+.home-cta {
+    margin-top: auto;
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.home-cta-primary {
+    background: #6c3baa;
+    color: #ffffff;
+    border: 2px solid transparent;
+}
+
+.home-cta-primary:hover {
+    background: transparent;
+    border-color: #6c3baa;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .home-pipeline-arrow {
+        transform: rotate(90deg);
+    }
+}
