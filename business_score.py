@@ -2,6 +2,20 @@ import geopandas as gpd
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
+"""
+This script calculates a "business score" for vacant lots in Madison, WI, to help identify the best locations for a new coffee shop.
+Input: Nothing :)
+Output: A DataFrame with the following columns:
+- id: Unique identifier for each vacant lot
+- saturation_score: A score from 0 to 1 indicating how saturated the area is with
+    coffee shops (1 = no competitors, 0 = very saturated)
+- traffic_score: A score from 0 to 1 indicating the foot traffic potential based on nearby businesses (1 = high traffic, 0 = low traffic)
+- demo_score: A score from 0 to 1 indicating the demographic fit based on median
+    income (1 = high income, 0 = low income)
+- business_score: The final combined score (average of the three individual scores)
+- lat: Latitude of the vacant lot (for mapping)
+- lon: Longitude of the vacant lot (for mapping)
+"""
 def calculate_business_score():
     # Load the file
     vacant_lots = gpd.read_file('static\\datasets\\vacant_lots_madison.geojson')
