@@ -36,38 +36,36 @@ if (submitBtn) {
         resultsArea.style.display = 'block';
         resultsArea.style.borderStyle = 'solid';
 
-        fetch('../data/vacant_lots_scored.geojson')
-            .then(res => res.json())
-            .then(data => {
-                const matches = data.features.map(f => {
-                    const allScores = f.properties.all_scores_json || [];
-                    const scoreData = allScores.find(s => s.category === category) ||
-                        allScores.find(s => s.category === "general business") ||
-                        { score: 0, reason: "Data unavailable for this location." };
+        if (typeof vacantLotsData !== 'undefined') {
+            const data = vacantLotsData;
+            const matches = data.features.map(f => {
+                const allScores = f.properties.all_scores_json || [];
+                const scoreData = allScores.find(s => s.category === category) ||
+                    allScores.find(s => s.category === "general business") ||
+                    { score: 0, reason: "Data unavailable for this location." };
 
-                    const lng = f.geometry.coordinates[0].toFixed(4);
-                    const lat = f.geometry.coordinates[1].toFixed(4);
-                    const coords = `(${lat}, ${lng})`;
-                    const baseAddr = f.properties['addr:street'] ? `${f.properties['addr:housenumber'] || ''} ${f.properties['addr:street']}` : "Madison Vacant Lot";
+                const lng = f.geometry.coordinates[0].toFixed(4);
+                const lat = f.geometry.coordinates[1].toFixed(4);
+                const coords = `(${lat}, ${lng})`;
+                const baseAddr = f.properties['addr:street'] ? `${f.properties['addr:housenumber'] || ''} ${f.properties['addr:street']}` : "Madison Vacant Lot";
 
-                    return {
-                        address: `${baseAddr} ${coords}`,
-                        lat: parseFloat(lat),
-                        lng: parseFloat(lng),
-                        score: scoreData.score,
-                        reason: scoreData.reason,
-                        id: f.properties.id
-                    };
-                });
-
-                matches.sort((a, b) => b.score - a.score);
-                const top5 = matches.slice(0, 5);
-
-                renderResults(top5, category);
-            })
-            .catch(err => {
-                resultsArea.innerHTML = `<p class="error">Error loading data. Please try again.</p>`;
+                return {
+                    address: `${baseAddr} ${coords}`,
+                    lat: parseFloat(lat),
+                    lng: parseFloat(lng),
+                    score: scoreData.score,
+                    reason: scoreData.reason,
+                    id: f.properties.id
+                };
             });
+
+            matches.sort((a, b) => b.score - a.score);
+            const top5 = matches.slice(0, 5);
+
+            renderResults(top5, category);
+        } else {
+            resultsArea.innerHTML = `<p class="error">Data is not loaded. Please ensure the JS data file is included.</p>`;
+        }
     });
 }
 
