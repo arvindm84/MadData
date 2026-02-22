@@ -139,7 +139,10 @@ def main():
     # =========================================================================
     # CALCULATE SCORES FOR EACH LOCATION × BUSINESS TYPE
     # =========================================================================
-    print(f"\n🔄 Calculating probability scores ({len(business_df)} locations × {len(business_types)} business types)...")
+    # Deduplicate before processing:
+    business_df = business_df.drop_duplicates(subset=["id", "business_type"]).reset_index(drop=True)
+
+    print(f"\n🔄 Calculating probability scores ({len(business_df)} lot×business combinations)...")
     
     results = []
     
@@ -147,6 +150,10 @@ def main():
         lot_id = row.get("id", idx)
         lat = row["lat"]
         lon = row["lon"]
+        business_type = row.get("business_type")
+        
+        if business_type not in business_types:
+            continue
         
         # Base business score from OSM analysis (0-1)
         base_business_score = row.get("business_score", 0.5)
@@ -154,66 +161,68 @@ def main():
         traffic_score = row.get("traffic_score", 0.5)
         demo_score = row.get("demo_score", 0.5)
         
-        # For each business type, calculate a score
-        for business_type in business_types:
-            # Find closest Reddit/Isthmus sentiment match for this business type
-            matched_location, positive_ratio, distance_km = find_closest_sentiment(
-                lat, lon, business_type, sentiment_df
+        # Find closest Reddit/Isthmus sentiment match for this business type
+        matched_location, positive_ratio, distance_km = find_closest_sentiment(
+            lat, lon, business_type, sentiment_df
+        )
+        
+        # Find closest transcript sentiment match (if available)
+        transcript_sentiment = 0.5  # Default neutral
+        transcript_location = "no_data"
+        if transcript_df is not None and len(transcript_df) > 0:
+            t_loc, t_ratio, t_dist = find_closest_sentiment(
+                lat, lon, business_type, transcript_df
             )
-            
-            # Find closest transcript sentiment match (if available)
-            transcript_sentiment = 0.5  # Default neutral
-            transcript_location = "no_data"
-            if transcript_df is not None and len(transcript_df) > 0:
-                t_loc, t_ratio, t_dist = find_closest_sentiment(
-                    lat, lon, business_type, transcript_df
-                )
-                if t_loc != "no_data":
-                    transcript_sentiment = t_ratio
-                    transcript_location = t_loc
-            
-            # Get trends demand score (0-100 -> 0-1)
-            trends_demand = trends_data.get(business_type, 25) / 100.0
-            
-            # =====================================================================
-            # CALCULATE FINAL PROBABILITY
-            # New weights:
-            #   - Business Score (OSM): 30%
-            #   - Reddit/Isthmus Sentiment: 25%
-            #   - Transcript Sentiment: 25%
-            #   - Google Trends Demand: 20%
-            # =====================================================================
-            
-            # Sentiment components (positive_ratio is already 0-1)
-            reddit_sentiment = positive_ratio
-            
-            # Weighted combination (all in 0-1 range)
-            raw_probability = (
-                0.30 * base_business_score +
-                0.25 * reddit_sentiment +
-                0.25 * transcript_sentiment +
-                0.20 * trends_demand
-            )
-            
-            # Calibrate to realistic range (25% - 90%)
-            calibrated_probability = 25 + (raw_probability * 65)
-            calibrated_probability = round(calibrated_probability, 1)
-            
-            results.append({
-                "id": lot_id,
-                "lat": lat,
-                "lon": lon,
-                "business_type": business_type,
-                "final_probability": calibrated_probability,
-                "base_business_score": round(base_business_score * 100, 1),
-                "reddit_sentiment_score": round(reddit_sentiment * 100, 1),
-                "transcript_sentiment_score": round(transcript_sentiment * 100, 1),
-                "trends_demand_score": round(trends_demand * 100, 1),
-                "saturation_score": round(saturation_score, 3),
-                "matched_reddit_location": matched_location,
-                "matched_transcript_location": transcript_location,
-                "distance_to_sentiment_km": round(distance_km, 2)
-            })
+            if t_loc != "no_data":
+                transcript_sentiment = t_ratio
+                transcript_location = t_loc
+        
+        # Get trends demand score (0-100 -> 0-1)
+        trends_demand = trends_data.get(business_type, 25) / 100.0
+        
+        # =====================================================================
+        # CALCULATE FINAL PROBABILITY
+        # New weights:
+        #   - Sentiment Score: 40% (average of Reddit + Transcript)
+        #   - Business Score (OSM): 40%
+        #   - Other Factors (Trends + Demo): 20%
+        # =====================================================================
+        
+        sentiment_score = (positive_ratio + transcript_sentiment) / 2.0
+        other_factors = (trends_demand + demo_score) / 2.0  # Simple representation of other factors
+        
+        raw_probability = (
+            0.40 * sentiment_score +
+            0.40 * base_business_score +
+            0.20 * other_factors
+        )
+        
+        # Calibrate to realistic range (25% - 95%)
+        calibrated_probability = 25 + (raw_probability * 70)
+        calibrated_probability = round(calibrated_probability, 1)
+        
+        reason_parts = [matched_location.title() + " Sentiment."]
+        if trends_demand > 0.6: reason_parts.append("High search trends.")
+        if demo_score > 0.7: reason_parts.append("Excellent demographics match.")
+        if saturation_score < 0.3: reason_parts.append("Low local competition.")
+        elif saturation_score > 0.7: reason_parts.append("High local competition.")
+        
+        results.append({
+            "id": lot_id,
+            "lat": lat,
+            "lon": lon,
+            "business_type": business_type,
+            "final_probability": calibrated_probability,
+            "base_business_score": round(base_business_score * 100, 1),
+            "reddit_sentiment_score": round(positive_ratio * 100, 1),
+            "transcript_sentiment_score": round(transcript_sentiment * 100, 1),
+            "trends_demand_score": round(trends_demand * 100, 1),
+            "saturation_score": round(saturation_score, 3),
+            "matched_reddit_location": matched_location,
+            "matched_transcript_location": transcript_location,
+            "distance_to_sentiment_km": round(distance_km, 2),
+            "reason": " ".join(reason_parts)
+        })
     
     # Create output dataframe
     output_df = pd.DataFrame(results)
@@ -222,6 +231,68 @@ def main():
     output_df = output_df.sort_values("final_probability", ascending=False).reset_index(drop=True)
     
     print(f"\n   Generated {len(output_df)} opportunity scores")
+
+    # =========================================================================
+    # INJECT INTO GEOJSON
+    # =========================================================================
+    print("\n🧬 Injecting final scores into Vacant Lots GeoJSON...")
+    GEOJSON_FILE = PROJECT_ROOT / "data" / "vacant_lots_scored.geojson"
+    JS_FILE = PROJECT_ROOT / "data" / "vacant_lots_scored.js"
+    
+    if GEOJSON_FILE.exists():
+        with open(GEOJSON_FILE, "r") as f:
+            geojson_data = json.load(f)
+            
+        # Group new scores by lot id
+        lot_scores_map = {}
+        for r in results:
+            lid = r["id"]
+            if lid not in lot_scores_map:
+                lot_scores_map[lid] = []
+            
+            lot_scores_map[lid].append({
+                "category": r["business_type"],
+                "score": int(r["final_probability"]),
+                "reason": r.get("reason", "")
+            })
+            
+        # Sort each lot's scores and group properly
+        for lid in lot_scores_map:
+            # Drop duplicates if any made it through
+            seen_types = set()
+            unique_scores = []
+            for s in sorted(lot_scores_map[lid], key=lambda x: x["score"], reverse=True):
+                if s["category"] not in seen_types:
+                    seen_types.add(s["category"])
+                    unique_scores.append(s)
+            lot_scores_map[lid] = unique_scores
+            
+        # Deduplicate features in the map data itself
+        unique_features = []
+        seen_fids = set()
+        for feature in geojson_data.get("features", []):
+            fid = feature.get("properties", {}).get("id")
+            if fid not in seen_fids:
+                seen_fids.add(fid)
+                if fid in lot_scores_map:
+                    all_scores = lot_scores_map[fid]
+                    feature["properties"]["all_scores_json"] = all_scores
+                    feature["properties"]["top_recommendations_json"] = all_scores[:3]
+                unique_features.append(feature)
+        
+        geojson_data["features"] = unique_features
+                
+        # Save updated formats
+        with open(GEOJSON_FILE, "w") as f:
+            json.dump(geojson_data, f, indent=2)
+            
+        with open(JS_FILE, "w") as f:
+            f.write("const vacantLotsData = " + json.dumps(geojson_data, separators=(',', ':')) + ";")
+            
+        print(f"   Injected updated scores into {GEOJSON_FILE.name} and {JS_FILE.name}")
+    else:
+        print(f"   ⚠️ Could not inject scores: {GEOJSON_FILE.name} not found")
+
     
     # =========================================================================
     # SAVE OUTPUTS
