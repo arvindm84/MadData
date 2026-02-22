@@ -1,0 +1,1364 @@
+[
+  {
+    "channel": "neighborhood_meetings",
+    "title": "1901 Aberg Avenue: Meeting of April 22, 2021",
+    "date": "4/22/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/8f2de04dfede4ed1b50eb6cecc43e3ca1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "9301 Crosswinds Lane Neighborhood Meeting: Meeting of May 13, 2021",
+    "date": "5/13/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/b0788b2ddeaa492381ba9cc7e00d0d121d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: (neighborhood|community) meeting",
+    "video_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/b0788b2ddeaa492381ba9cc7e00d0d121d",
+    "transcript_path": "transcripts/5132021_9301_Crosswinds_Lane_Neighborhood_Meeting_Meeting_of_May_13_2021.txt"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Alder Budget Conversation-Navigating Madison's Budget: Meeting of October 29, 2020",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/bd30a1de7fb5488690fd23630f8147c81d/Info",
+    "relevant": false,
+    "filter_reason": "skip pattern: budget (conversation|overview|presentation)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Arbor Hills Lighting: Meeting of February 15, 2021",
+    "date": "2/15/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/47913167831a4c0897cf7b0e64a8287f1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "BRT East Washington Roadway Refinements: Meeting of November 16, 2020",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/214da58b966445719cd25d64e46c365f1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: road)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Core Spaces Proposed Development at State/Gorham/Johnson: Meeting of April 19, 2021",
+    "date": "4/19/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/ab2bb14d2f4b4554a11409dc7f34f4bb1d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: proposed (development|redevelopment)",
+    "video_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/ab2bb14d2f4b4554a11409dc7f34f4bb1d",
+    "transcript_path": "transcripts/4192021_Core_Spaces_Proposed_Development_at_StateGorhamJohnson_Meeting_of_April_.txt"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Development Proposal for 2002 Winnebago Street: Meeting of August 17, 2021",
+    "date": "8/17/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/09a08a58e67f4fcfb4dab2972efc32fd1d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development",
+    "video_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/09a08a58e67f4fcfb4dab2972efc32fd1d",
+    "transcript_path": "transcripts/8172021_Development_Proposal_for_2002_Winnebago_Street_Meeting_of_August_17_2021.txt"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "District 13 Town Hall: Proposed Zoning Changes",
+    "date": "5/3/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/9c6c33db374349f08977680a39ab7ce31d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: zoning, town hall",
+    "video_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/9c6c33db374349f08977680a39ab7ce31d",
+    "transcript_path": "transcripts/532021_District_13_Town_Hall_Proposed_Zoning_Changes.txt"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Gun Violence & Public Safety: Meeting of October 21, 2021",
+    "date": "10/21/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/93ec62029e4e441a82115daa1d5973371d/Info",
+    "relevant": false,
+    "filter_reason": "skip pattern: gun violence"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Hilldale \"Phase 3\": Meeting of October 7, 2021",
+    "date": "10/7/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/aa428bb5f98844eb90ec349f080ee08d1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Housing Ordinance Changes - Overview and Community Q & A: Meeting of March 1, 2021",
+    "date": "3/1/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/c37a9e8d4e3541c89a0ff6dd7491ce111d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Knutson Drive neighborhood meeting: Meeting of June 7, 2021",
+    "date": "6/7/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/4aeba577efc54a5caab3362a486501861d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: (neighborhood|community) meeting",
+    "video_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/4aeba577efc54a5caab3362a486501861d",
+    "transcript_path": "transcripts/672021_Knutson_Drive_neighborhood_meeting_Meeting_of_June_7_2021.txt"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Liquor License for 714 W. Badger Road Neighborhood Meeting: Meeting of July 15, 2021",
+    "date": "7/15/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/7f7606214af34e579018ca3f64a5594c1d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: (neighborhood|community) meeting",
+    "video_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/7f7606214af34e579018ca3f64a5594c1d",
+    "transcript_path": "transcripts/7152021_Liquor_License_for_714_W_Badger_Road_Neighborhood_Meeting_Meeting_of_Jul.txt"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Madison Development Corporation Development Proposal for Mifflin and Second Streets: Meeting of July 27, 2021",
+    "date": "7/27/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/4cacf0188eea4dd58aa656e8d257533d1d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Mandel Group - University Research Park Development: Meeting of November 16, 2020",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/7d148eb6b88444df84b1c0985449c37d1d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Neighborhood Grant Program Workshop: Meeting of March 3, 2021",
+    "date": "3/3/2021",
+    "description": "Join us for an overview of the Neighborhood Grant Program and a question and answer about your project ideas.  The workshop will be conducted in English. If you need accommodations such as an interpreter for this workshop, please contact Linda Horvath at lhorvath@cityofmadison.com at least 3 business days prior to the workshop.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/477db4ae09a34a7dbfec7fed4f8c39f51d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: shop"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Oak Park Place: Meeting of September 29, 2021",
+    "date": "9/29/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/3f613a0e895a4a23b4558314a795c44f1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Odana Area Plan: Meeting of May 27, 2021",
+    "date": "5/27/2021",
+    "description": "Draft land use, transportation, parks and open space, and maximum height maps for the Odana Area Plan were shared in late January.  Project staff have made some edits since that time, and are looking forward to sharing updated concepts at two virtual meetings: an Evening Engagement on May 27th at 5:30pm, and a Lunch & Learn on June 1st at 12:00 p.m. (noon).  The same information will be presented at both meetings, and one, possibly both, of the meetings will be recorded.  In addition to updated maps, potential proactive rezoning of properties and possible official mapping of planned street connections will be summarized.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/c1487aeefed0484197f2913163bd77a31d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: zoning, rezoning, area plan"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Oscar Mayer Special Area Plan Proactive Rezoning: Meeting of February 25, 2021",
+    "date": "2/25/2021",
+    "description": "When the Common Council approved the Oscar Mayer Special Area Plan, it directed staff to prepare recommended zoning changes to support implementation of the plan.  At this meeting, staff will present an overview of rezoning considerations and discuss the process and timeline, and participants will have an opportunities to comment and ask questions.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/52b6cdb7916a45cf856fc8634635e5071d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: zoning, rezoning, area plan"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Parking on Lake Point Neighborhood Meeting: Meeting of THURSDAY, March 11, 2021",
+    "date": "3/11/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/974a16e97d274013b38c13c48f7741281d/Info",
+    "relevant": false,
+    "filter_reason": "skip pattern: parking (on|at|near|management)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Plato Madison: Meeting of July 26, 2022",
+    "date": "7/26/2022",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/44613b7916af4073a4b04bd7346f41d31d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Proposed Development at 4807 Freese Lane Neighborhood Meeting: Meeting of January 6, 2021",
+    "date": "1/6/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/04706719e49d48a5b1143a8f3814c32e1d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: proposed (development|redevelopment)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Proposed Development at First St & E Washington Ave: Meeting of April 21, 2021",
+    "date": "4/21/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/28da085ae0f84364967a6a37a7d84bfa1d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: proposed (development|redevelopment)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Proposed Development at Oakwood Village: Meeting of May 19, 2021",
+    "date": "5/19/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/6d3b648cb9c2468a8822213023d2703b1d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: proposed (development|redevelopment)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Proposed Housing Ordinance Changes: Meeting of March 17, 2021",
+    "date": "3/17/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/12dc1a2b676b40b0aa3cab5d051860a21d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Proposed Redevelopment of 2208 University Avenue: Meeting of December 3, 2020",
+    "date": "12/3/2020",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/388d51a3228740d0be267683b99fa7601d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: proposed (development|redevelopment)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Proposed Redevelopment of 5533 University Avenue: Meeting of August 4, 2021",
+    "date": "8/4/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/c2946fef299e4ac1af33bef4dda4b2f81d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: proposed (development|redevelopment)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Proposed redevelopment of NW corner of W. Johnson and N. Bassett Streets: Meeting of October 7, 2021",
+    "date": "10/7/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/9041bf9a3669473db2cea995a686be961d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: proposed (development|redevelopment)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Proposed Village on Park Parcel Redevelopment: Meeting of July 29, 2021",
+    "date": "7/29/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/c24b8cfefeff4a7db0b5691ac3cec3ea1d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: (phase \\d|parcel) (redevelopment|development)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Public Safety Summit: Meeting of November 19, 2020",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/6db6a4392317424badbc4f14e8edd17a1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: public safety)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Raemisch Farm Rezoning Neighborhood Meeting: Meeting of May 6, 2021",
+    "date": "5/6/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/75c1f770180f408095813b25ff9d484f1d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: (neighborhood|community) meeting"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Redevelopment of 216 & 222 N. Midvale Boulevard: Meeting of October 14, 2021",
+    "date": "10/14/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/7720f15e510147678851328c2ff361cf1d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development, redevelopment"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Redevelopment of Bimbo Bakery Site: Meeting of February 3, 2022",
+    "date": "2/3/2022",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/5fddf0aea0cd4c5da4f4af1c6fafb7111d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development, redevelopment, bakery"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Redevelopment of Madison Plaza Hotel, 3841 E. Washington Avenue: Meeting of September 9, 2021",
+    "date": "9/9/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/c9d7ad31d1f34945acf4ddfd00c55fa31d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development, redevelopment"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Redevelopment of St. John's Lutheran Church Site: Meeting of August 18, 2021",
+    "date": "8/18/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/65d7df2f38284054826395ab71c4eff81d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development, redevelopment"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Redistricting Informational Meeting",
+    "date": "9/22/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/b0cc8d17139b45c399a71e470a7eaebd1d/Info",
+    "relevant": false,
+    "filter_reason": "skip pattern: redistricting"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Redistricting Informational Meeting",
+    "date": "9/22/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/224bd65bc9d64cac976ce1592dedd38a1d/Info",
+    "relevant": false,
+    "filter_reason": "skip pattern: redistricting"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "South Madison Focus Area Concepts Plan Meeting #1: Meeting of June 3, 2021",
+    "date": "6/3/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/b75adc972aff427f910fde335dbb38de1d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: south madison (plan|focus|market|strategy)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "South Madison Focus Area Concepts Plan Meeting #2: Meeting of June 3, 2021",
+    "date": "6/3/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/77be4f42a32b4777b7fafd35e6522c161d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: south madison (plan|focus|market|strategy)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "South Madison Market Study Presentation and Q&A: Meeting of March 4, 2021",
+    "date": "3/4/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/2b9a862cca6c4ae18baa3c433dfbdbef1d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: south madison (plan|focus|market|strategy)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "South Madison Plan First Complete Draft",
+    "date": "9/29/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/c4881628ca5c40b89abfc6488a2b9aa01d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: south madison (plan|focus|market|strategy)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "South Madison Plan First Complete Draft",
+    "date": "9/29/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/a42eff67430d4d9b85d21650aaea0ebb1d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: south madison (plan|focus|market|strategy)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "South Madison Plan Revised Focus Area Concepts #1: Meeting of September 9, 2021",
+    "date": "9/9/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/c2aeff571cd64ff7ae65212f25f75ee41d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: south madison (plan|focus|market|strategy)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "South Madison Plan Revised Focus Area Concepts #2: Meeting of September 9, 2021",
+    "date": "9/9/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/03c17f2b447b42b3b3607dd6065fcce31d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: south madison (plan|focus|market|strategy)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "South Madison Plan Strategies and Recommendations - Meeting of April 15, 2021",
+    "date": "4/15/2021",
+    "description": "The South Madison planning team has been working on an update to the South Madison Neighborhood Plan adopted in 2005. However due to COVID-19, as well as the uprisings and calls for systemic change, the plan took a pause in late March 2020.\n\nWe intend to address and build on relevant issues identified by the South Madison community through an action-oriented plan prioritizing community wealth building, anti-displacement and gentrification, and opportunities to thrive. We invite all South Madison residents, business owners and other stakeholders to participate in a conversation about the draft South Madison Plan strategies and recommendations. \n\nThe City of Madison is dedicated to ensuring that all residents have a voice in processes that affect them. Please help us make this happen by taking a minute to fill out this optional survey. All responses are private and will only be used in aggregate and not reported out individually.\n\nhttps://www.surveymonkey.com/r/madison_meeting_demographics",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/15cdeca7ef9642ae86d6ac2a8907e9681d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: south madison (plan|focus|market|strategy)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "South Madison Plan Strategies and Recommendations: Meeting of April 12, 2021",
+    "date": "4/12/2021",
+    "description": "The South Madison planning team has been working on an update to the South Madison Neighborhood Plan adopted in 2005. However due to COVID-19, as well as the uprisings and calls for systemic change, the plan took a pause in late March 2020.\n\nWe intend to address and build on relevant issues identified by the South Madison community through an action-oriented plan prioritizing community wealth building, anti-displacement and gentrification, and opportunities to thrive. We invite all South Madison residents, business owners and other stakeholders to participate in a conversation about the draft South Madison Plan strategies and recommendations. \n\nThe City of Madison is dedicated to ensuring that all residents have a voice in processes that affect them. Please help us make this happen by taking a minute to fill out this optional survey. All responses are private and will only be used in aggregate and not reported out individually.\n\nhttps://www.surveymonkey.com/r/madison_meeting_demographics",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/b34f3b9a64174825adf85f15f7d38d911d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: south madison (plan|focus|market|strategy)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Tamarack Trails/Walnut Grove Information Session",
+    "date": "12/8/2020",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/8e27946dd2e243f48af4cb159842e8cb1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Westside Community Conversation: Meeting of November 18, 2020",
+    "date": null,
+    "description": "Traffic Management and Safety",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/08e37e33f7834acb8a151812f4bb20c71d/Info",
+    "relevant": false,
+    "filter_reason": "skip pattern: traffic (safety|calming|management)"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Willy Street Heights Neighborhood Meeting: Meeting of July 29, 2021",
+    "date": "7/29/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/144a3db058a243acb2bfbe2c9d68eaf81d/Info",
+    "relevant": true,
+    "filter_reason": "strong match: (neighborhood|community) meeting"
+  },
+  {
+    "channel": "neighborhood_meetings",
+    "title": "Wisconsin Youth Symphony Orchestra proposed new music facility: Meeting of August 5, 2021",
+    "date": "8/5/2021",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/28b209cad92742fc8827f78c45ba901d1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: symphony, orchestra)"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission:  Meeting of April 11, 2011",
+    "date": null,
+    "description": "For more information, click on the links icon located at the top left corner of the page.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/3f0d5c74af2648a2837df760c2b5a04c1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of April 10, 2023",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/30c79e296c2540fe8ecfe5b9a2bfda7e1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of April 11, 2022",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/5512bec2b9774ffea3b31081833b41b11d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of April 18, 2016",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/48d6e408733745fe853b0b5f08d5b3731d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of April 22, 2019",
+    "date": null,
+    "description": "The function and duty of the Plan Commission to make and adopt a master plan for the physical development of the municipality.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/42409b6e69bc45d691205d97d7ed52e41d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development, master plan"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of April 23, 2018",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/4152499f420e4fd6bedb56a96807e1551d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of April 27, 2020",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/442c6980191f4e18b512273e4c322d301d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of April 4, 2016",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/40eb623acbfb438d9d929c74522418f11d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of April 6th, 2015",
+    "date": null,
+    "description": "The function and duty of the Plan Commission is to make and adopt a master plan for the physical development of Madison. The Plan Commission meets twice a month.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/5804cdb6de9e4ee48991a0264c03e3971d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development, master plan"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of August 11, 2014",
+    "date": null,
+    "description": "The function and duty of the Plan Commission is to make and adopt a master plan for the physical development of Madison. The Plan Commission meets twice a month.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0cdbf819e57c4dbf9ea21b55f8b96b1c1d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development, master plan"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of August 23, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/3760d80bc72d4116ae41588122226d901d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of August 25, 2014",
+    "date": null,
+    "description": "The function and duty of the Plan Commission is to make and adopt a master plan for the physical development of Madison. The Plan Commission meets twice a month.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/36b9e26a2da2423da26bb90cd907b6371d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development, master plan"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of August 28, 2017",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/02039e829a2f437c82f12460d3ce04b21d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of August 29, 2016",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/32360035bcf34a7f8a5f53289f78c1811d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of August 29, 2022",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/57479dacfa4449b28f014257edeecb791d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of December 13, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0145f29877a34ca88cc9b67903ae44a01d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of December 4, 2017",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/07d5513559ef4cac8b9151ea42d234a01d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of December 7, 2015",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/06c8f4c3b1aa44ce982897a36ea72bc11d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of February 22, 2016",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/1e0e91cb572c417cb330a7e13d9924e81d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of February 22, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/31b9569d49454cb39ee8ef268340dee61d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of February 7, 2022",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/629b8d387a8546c58c60d73932eba49c1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of February 8, 2016",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/2af399c7d0fe4f54b7f8c8ea9d3efb321d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of January 24, 2022",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/26f04dde65564501b4e5447382fcff001d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of January 28, 2019",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0519a2a52e604bc3b6cabfe80e6dcb0c1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of January 9, 2017",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/419a0be085b54e9f891e016e330ebc391d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of July 11, 2016",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/311edfbd94a0450e99612a3e12dc08b01d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of July 11, 2022",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/52aeefd96d9d452a84b9e47dc5354fc11d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of July 12, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/49ec3ad7248e4d128565cf572504a46c1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of July 25, 2016",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/049aab5da6ed44fe80f33b474033ffa71d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of July 25, 2022",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/553707e1218c4d18a5a8d9785ec83ed11d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of July 28, 2014",
+    "date": null,
+    "description": "The function and duty of the Plan Commission is to make and adopt a master plan for the physical development of Madison. The Plan Commission meets twice a month.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/1e7f6ccc724a41a69fef46c87830140b1d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development, master plan"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of July 30, 2020",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/421ab75d5830408590614461a4b9256a1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of July 8, 2019",
+    "date": null,
+    "description": "The function and duty of the Plan Commission to make and adopt a master plan for the physical development of the municipality.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/688673f725bb44b0a4f67be429b97f1d1d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development, master plan"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of June 13, 2016",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/4e8dacd000ff4a91a42a31fb289995db1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of June 13, 2022",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/28c8c69a7d4d4f6db0d900b49beee5da1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of June 5, 2017",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/3099d8ee72a34101af04a4896e66da951d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of March 21, 2016",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/527dd1db471c4cbf893bef92b7f273b11d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of March 6, 2017",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/1af67a0aba6343459bf68bd2e0d60af81d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of March 7, 2016",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/271093695dfc4a1b9f9e4db317b708b61d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of March 9, 2020",
+    "date": null,
+    "description": "The Plan Commission makes reports and recommendations to the Common Council related to the plan and physical development of the city and on the location and architectural design of public buildings and other public and private projects.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/16c2bb4c186340acacc874f81ff469b61d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of March 9th, 2015",
+    "date": null,
+    "description": "The function and duty of the Plan Commission is to make and adopt a master plan for the physical development of Madison.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/520b130ad44e4d599e05ad179234d62b1d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development, master plan"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of May 23, 2022",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/66ebbed6a7324292a3897fb5405adbd11d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of May 8, 2017",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/43f393758e714e9494ad0b9589997b131d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of November 24, 2014",
+    "date": null,
+    "description": "The function and duty of the Plan Commission is to make and adopt a master plan for the physical development of Madison. The Plan Commission meets twice a month.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0c03786e260d42db8b94dc5c4b752bc51d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development, master plan"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of November 6, 2017",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/1cf99a8a18504113a717017a409e1a0f1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of November 7, 2016",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/623fa855afa44cd896240366486081e81d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of October 17, 2016",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/3cf29f1858ea405f99bd7b327b7d72ec1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of October 18, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/3e02a79e188e4973bd9f60f9462be6761d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of October 19, 2015",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/575ef1b0eca4471b9227aaaf436813751d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "plan_commission",
+    "title": "Plan Commission: Meeting of September 22, 2014 Part One",
+    "date": null,
+    "description": "This is part one of a two part presentation, you can view the second part here:\n\nhttps://media.cityofmadison.com/Mediasite/Play/dc35e14ef31a417d8e8e604a8e13d0f51d",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/3c72b8cc1ad340f29788d5e7a7cadeaf1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Madison Food Policy Council: Meeting of December 14, 2022",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/d567acd2381246aca23bad7fc8bc3f001d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: food"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Madison Revitalization and Community Development Corporation",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/92b076b2f9894ad6bac17efa90dbee4e1d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: development"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Ad Hoc TFOGS Final Report Implementation Work Group: Meeting of August 23, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0d4c3292a22d4f5abbc7aac662340c7c1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Alder Workgroup to Develop Logistics and Operational Details for MPD Independent Civilian Oversight: Meeting of July 11, 2020",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0e28a73591274f35941d98c8e2242abb1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Board of Park Commissioners: Meeting of October 13, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0495f523d18141d88215d236f6824a9e1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Board of Park Commissioners: Meeting of September 22, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0ee04b4c7c4645398029f5e09bfa42b21d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Board of Public Works: Meeting of December 16, 2020",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/079f2add7fdd4bc08166755babce2f3e1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Board of Public Works: Meeting of February 17, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/04d114d1ec02482ab8847e8677f861e71d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Body-Worn Camera Feasibility Review Committee: Meeting of December 3, 2020",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0a159bb3d52f4fa39980115457215c461d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Body-Worn Camera Feasibility Review Committee: Meeting of January 26, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/04df16c2e79241f28970629471a9a8ea1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Brown Bag Lunch on TID 25",
+    "date": null,
+    "description": "Mayor Soglin and members of the Madison Common Council discuss TID 25.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0007455e1f25488c84565900f19adb671d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: tid"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Dane County Board Committee of the Whole: Meeting of June 15, 2017",
+    "date": null,
+    "description": "Representatives from Mead and Hunt present their most recent update to the Dane County Jail Study to the Dane County Board of Supervisors.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/03f49efd862b4142b7242926be52f6791d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Dane County Board Executive Committee: Meeting of October 6, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0bf946e9099a4bfca91f106d6cc958151d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Dane County Health & Human Needs Committee: Meeting of March 12, 2020",
+    "date": null,
+    "description": "The Health and Human Needs committee monitors, coordinates and advises the county board on all aspects of human service policy and delivery in Dane County.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0f38c222bda54716b21bdc6dd3625ae61d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Dane County Health and Human Needs Committee Meeting of November 14, 2019",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/00262d9f80a6417e8f21b88731f7b3a01d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Dane County Health and Human Needs Committee: Meeting of June 13, 2019",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0246c245f10a44909e3de027ed73d2401d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Dane County Personnel & Finance Committee: Meeting of May 28, 2019",
+    "date": null,
+    "description": "The personnel & finance committee is the County Board's primary committee for oversight of the county's finances.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/004574d904b340fb8c1f3b98df2ae9241d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Downtown Coordinating Committee: Meeting of July 15, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/064531cc6c47414eb81dc14a94768cfb1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Education Committee",
+    "date": "9/27/2023",
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0502c20fd0b14ceb960c8e097b7713f01d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Equal Opportunities Commission Appeals Committee: Meeting of June 17, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0464740b2cb1431ea87d129cc0858c8b1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Equal Opportunities Commission Executive Committee: Meeting of March 1, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0c09ee906c56498b92e12f91551f52401d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Equal Opportunities Commission: Meeting of August 12, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/04072bda4dc5442a98df3f630a1d19b01d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Golf Subcommittee: Meeting of February 22, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0986c5b4fd0341ce93681d8aea1a1c3b1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Greater Madison MPO Citizen Advisory Committee:  Meeting of January 20, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0cce71bf002c4f4bacd8b1a5a1be50ed1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Greater Madison MPO Technical Coordinating Committee: Meeting of January 27, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0c0aecb6a299483ea8d80986e71ea43a1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Landmarks Commission: Meeting of November 16, 2020",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0dac18c17ab64a7884cd5a25809708671d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Landmarks Ordinance Review Committee: Meeting of July 22, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0d32f986bd944ba692df7fd881910b851d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Madison Area Transportation Planning Board:  Meeting of August 5, 2020",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/05fe7d2502d740fcba3a906dabb751ca1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Madison Downtown Library Public Meeting:  Schematic Design Meeting of September 28, 2010",
+    "date": null,
+    "description": "Public meeting where the public is invited to review the preferred layout and design options for a remodeled central library.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/01c06f69c4c943b992d30a12a3bc09011d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Madison Food Policy Council: Meeting of August 18, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0d0180593dc84012b3a58e7ec55434b61d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: food"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Madison Food Policy Council: Meeting of January 12, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0183cb9e75454d8294349b5175ec71d31d/Info",
+    "relevant": true,
+    "filter_reason": "keywords: food"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Monona Terrace Community and Convention Center Board: Meeting of February 18, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/02c407600d004b47a542e1b3fb0730441d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "MPL Board: Meeting of 1/5/23 ***Audio Only***",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/08f2deff6b954f4bbf94bf0e847bdf631d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "President's Workgroup to Review and Revise Chief of Staff Position Description: Meeting of July 1, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0b07e5126ed347f69eea0f393f17eb411d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "President's Workgroup to Review and Revise Chief of Staff Position Description: Meeting of June 24, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/04577a9972db4a53aa0e4a2a536c5f211d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "President's Workgroup to Review and Revise Chief of Staff Position Description: Meeting of October 21, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/03d1d3d9fa9743598686bee8705a8d9e1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Public Safety Review Committee: April 13, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/07b323e20af94d93ad81032c72c38d0c1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: public safety)"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Public Safety Review Committee: Meeting of July 14, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0a57e596d4ff4c788d87b250c17399f81d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: public safety)"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Public Safety Review Committee: Meeting of March 10, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0ad7118624c1477585b8d3e78a9a48471d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: public safety)"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Street Use Staff Commission:  Meeting of July 21, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/01fbf3d896164f7fa1374ccfee1273361d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Street Use Staff Commission:  Meeting of June 9, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/04036179a241458ab372082055e388801d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Street Use Staff Commission: Meeting of April 14, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0568543911224dcd9db739c6f78d4b441d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Street Use Staff Commission: Meeting of September 1, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/070b76991c0d47c680d7753c0239934f1d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Task Force on Municipal Golf in Madison Parks: Meeting of July 15, 2020",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/051dd9c9a2654ede9d2c6cf2a62e7ee61d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "TFOGS Recommendations Implementation Workgroup: Meeting of April 14, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0b03551bda25452797e7421e4a50e7991d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Urban Design Commission:  Meeting of February 17, 2010",
+    "date": null,
+    "description": "The Mission of the Urban Design Commission is, among other things, to assure the highest quality of design for all public and private projects in the city; and, in all other ways possible, assure a functionally efficient and visually attractive city in the future. UDC tackled the issue of the proposed Edgewater Hotel project at this meeting.",
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/06824ab1353b446799507f413e9773631d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Urban Design Commission: Meeting of December 2, 2020",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/08be0a6a81df48aa9ad8dbdfa72218f71d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Urban Design Commission: Meeting of January 27, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0c4ba2bfb9a14ec885779a9abfd656711d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Urban Design Commission: Meeting of June 9, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0099b2cc0ae54e91a8f4da606681d2441d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: )"
+  },
+  {
+    "channel": "additional_meetings",
+    "title": "Water Utility Board: Meeting of February 23, 2021",
+    "date": null,
+    "description": null,
+    "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/0281069a89ef433a864d0471b2384f271d/Info",
+    "relevant": false,
+    "filter_reason": "no relevant keywords (skip: utility)"
+  }
+]
