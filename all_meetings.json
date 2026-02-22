@@ -135,7 +135,9 @@
     "description": null,
     "presentation_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/4cacf0188eea4dd58aa656e8d257533d1d/Info",
     "relevant": true,
-    "filter_reason": "keywords: development"
+    "filter_reason": "keywords: development",
+    "video_url": "https://media.cityofmadison.com/Mediasite/Showcase/madison-city-channel/Presentation/4cacf0188eea4dd58aa656e8d257533d1d",
+    "transcript_path": "transcripts/7272021_Madison_Development_Corporation_Development_Proposal_for_Mifflin_and_Sec.txt"
   },
   {
     "channel": "neighborhood_meetings",
